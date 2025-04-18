@@ -1,15 +1,11 @@
 public class TestTrackingSystem {
     public static void main(String[] args) {
-        // TEMP HELPER and TESTER FILE
-        // Create TrackingSystem
-        TrackingSystem trackingSystem = new TrackingSystem();
+        // Create TrackingSystem and load data from CSV
+        TrackingSystem trackingSystem = new TrackingSystem("rso_metrics.csv");
 
-        // Load data from your CSV file
-        trackingSystem.loadData("rso_metrics.csv");
-
-        // Get all the loaded space objects
-        for (SpaceObject obj : trackingSystem.getSpaceObjects()) {
-            obj.displayInfo();
+        // Iterate and print all loaded space objects
+        for (SpaceObject obj : trackingSystem.getAllObjects().values()) {
+            obj.displayInfo();  // Assumes you have a displayInfo() method
             System.out.println("-------------------------");
         }
     }
