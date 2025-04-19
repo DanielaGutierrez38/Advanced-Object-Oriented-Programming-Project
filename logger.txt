@@ -1,0 +1,18 @@
+19-04-2025 14:54:48 Scientist User logged in
+19-04-2025 14:54:51 Scientist User logged out
+19-04-2025 14:56:14 Scientist User logged in
+19-04-2025 14:56:15 Scientist User logged out
+19-04-2025 14:56:55 Scientist User logged in
+19-04-2025 14:56:56 Scientist User logged out
+19-04-2025 14:57:51 Scientist User logged in
+19-04-2025 14:57:52 Scientist User logged out
+19-04-2025 15:34:47 Scientist User logged in
+19-04-2025 15:34:50 Scientist User logged out
+19-04-2025 16:12:33 Scientist User logged in
+19-04-2025 16:12:34 Scientist User logged out
+19-04-2025 16:12:35 Space Agent Representative User logged in
+19-04-2025 16:12:36 Space Agent Representative User logged out
+19-04-2025 16:12:39 Policymaker User logged in
+19-04-2025 16:12:40 Policymaker User logged out
+19-04-2025 16:12:41 Administrator User logged in
+19-04-2025 16:12:42 Administrator User logged out
