@@ -99,8 +99,16 @@ public void displayScientistMenu() {
 
                 switch (orbitStatus) {
                     case 1:
+
+                        //display list of all objects in the LEO and their info
+                        Scientist newScientist = new Scientist();
+                        newScientist.trackObjectsInLEO();
+                    
+
+
                         // implement LEO tracking
-                        break;
+                    break;
+
                     case 2:
                         // implement orbit assessment
                         break;
