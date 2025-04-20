@@ -142,7 +142,7 @@ class Logger extends MissionControl{
     }//end ScientistExit
 
     /**
-     * Method that appends a Space Agent R to the logger.txt file
+     * Method that appends a Space Agent Representative log out to the logger.txt file
      * @param None
      * @return void
      */
@@ -167,6 +167,11 @@ class Logger extends MissionControl{
 
     }//end Space Agent Rep exit
 
+    /**
+     * Method that appends a Policymaker log out to the logger.txt file
+     * @param None
+     * @return void
+     */
     public void logPolicymakerExit() {
 
         LocalDateTime myDateObj = LocalDateTime.now();
@@ -188,6 +193,11 @@ class Logger extends MissionControl{
 
     }//end PolicymakerExit
 
+    /**
+     * Method that appends an Administrator log out to the logger.txt file
+     * @param None
+     * @return void
+     */
     public void logAdministratorExit() {
 
         LocalDateTime myDateObj = LocalDateTime.now();
@@ -209,8 +219,11 @@ class Logger extends MissionControl{
 
     }//end Admin exit
 
-
-    //////////////////Still changing these (will change logic further once methods implemented)/////////////////////
+    /**
+     * Method that appends a Rocket Body query to the logger.txt file
+     * @param None
+     * @return void
+     */
     public void logQueryRocketBody() {
 
         LocalDateTime myDateObj = LocalDateTime.now();
@@ -230,8 +243,13 @@ class Logger extends MissionControl{
             System.out.println("Couldn't write to file");
         }
 
-    }//end Admin exit
+    }
 
+    /**
+     * Method that appends a Debris query to the logger.txt file
+     * @param None
+     * @return void
+     */
     public void logQueryDebris() {
 
         LocalDateTime myDateObj = LocalDateTime.now();
@@ -251,8 +269,13 @@ class Logger extends MissionControl{
             System.out.println("Couldn't write to file");
         }
 
-    }//end Admin exit
+    }
 
+    /**
+     * Method that appends a Payload query to the logger.txt file
+     * @param None
+     * @return void
+     */
     public void logQueryPayload() {
 
         LocalDateTime myDateObj = LocalDateTime.now();
@@ -272,8 +295,13 @@ class Logger extends MissionControl{
             System.out.println("Couldn't write to file");
         }
 
-    }//end Admin exit
+    }
 
+    /**
+     * Method that appends an unknown object query to the logger.txt file
+     * @param None
+     * @return void
+     */
     public void logQueryUnknown() {
 
         LocalDateTime myDateObj = LocalDateTime.now();
@@ -293,8 +321,13 @@ class Logger extends MissionControl{
             System.out.println("Couldn't write to file");
         }
 
-    }//end Admin exit
+    }
 
+    /**
+     * Method that appends a LEO Object query to the logger.txt file
+     * @param None
+     * @return void
+     */
     public void logQueryTrackLEOObjects() {
 
         LocalDateTime myDateObj = LocalDateTime.now();
@@ -303,7 +336,7 @@ class Logger extends MissionControl{
 
         System.out.println(formattedDate);
 
-        String appendText = "\n" + formattedDate + " Administrator User logged out";
+        String appendText = "\n" + formattedDate + " Scientist queried LEO Objects";
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
@@ -314,6 +347,84 @@ class Logger extends MissionControl{
             System.out.println("Couldn't write to file");
         }
 
-    }//end Admin exit
+    }
+
+    /**
+     * Method that appends an update to CSV file with debris orbit status to the logger.txt file
+     * @param None
+     * @return void
+     */
+    public void updateCSVFile() {
+
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+
+        System.out.println(formattedDate);
+
+        String appendText = "\n" + formattedDate + " CSV File was updated with debris orbit status";
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
+            writer.write(appendText);
+
+            writer.close();
+        } catch (IOException ioe) {
+            System.out.println("Couldn't write to file");
+        }
+
+    }
+
+    /**
+     * Method that appends a debris orbit status assessment to the logger.txt file
+     * @param None
+     * @return void
+     */
+    public void logDebrisOrbitStatus() {
+
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+
+        System.out.println(formattedDate);
+
+        String appendText = "\n" + formattedDate + " Scientist assessed orbit status of Debris";
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
+            writer.write(appendText);
+
+            writer.close();
+        } catch (IOException ioe) {
+            System.out.println("Couldn't write to file");
+        }
+
+    }
+
+    /**
+     * Method that appends the creation of the txt file with debris count to the logger.txt file
+     * @param None
+     * @return void
+     */
+    public void logCreateExitedDebrisTxtFile() {
+
+        LocalDateTime myDateObj = LocalDateTime.now();
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        String formattedDate = myDateObj.format(myFormatObj);
+
+        System.out.println(formattedDate);
+
+        String appendText = "\n" + formattedDate + " TXT file was created with inorbit and exited debris count";
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
+            writer.write(appendText);
+
+            writer.close();
+        } catch (IOException ioe) {
+            System.out.println("Couldn't write to file");
+        }
+
+    }
     
 }

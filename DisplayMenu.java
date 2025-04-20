@@ -1,8 +1,22 @@
 import java.util.Scanner;
 
+/**
+ * This class handles all menu interactions for all users
+ * @author Caitlin Gregory
+ * @author Daniela Gutierrez
+ */
 public class DisplayMenu {   
-    private MissionControl missionControl = new MissionControl();
 
+    /** Create a new MissionControl variable to call its methods to track, search and assess */
+    private MissionControl missionControl = new MissionControl();
+    /** Create a new Logger variable to log user interactions */
+    Logger newLogger = new Logger();
+
+    /**
+     * Method that displays the main menu
+     * @param None
+     * @return void
+     */
     public void displayMainMenu(){
 
         //int userSelection = 1;
@@ -19,7 +33,6 @@ public class DisplayMenu {
 
             Scanner input = new Scanner(System.in);
             int userSelection = input.nextInt();
-            Logger newLogger = new Logger();
 
             switch(userSelection){
 
@@ -45,6 +58,8 @@ public class DisplayMenu {
 
                 case 5:
                     //input.close();
+                    newLogger.updateCSVFile();
+                    missionControl.exportToUpdatedCSV("updated_rso_metrics.csv");
                     System.out.println("Thank you for using the system! See you next time :)");
 
                 break;
@@ -57,81 +72,93 @@ public class DisplayMenu {
 
         //}while (userSelection != 5);//end while
 
-
     }//end displayMainMenu
 
-public void displayScientistMenu() {
-    Scanner inputScientist = new Scanner(System.in);
-    int userSelectionScientist;
+    /**
+    * Method that displays the Scientist menu once the user has logged in as this user
+    * @param None
+    * @return void
+    */
+    public void displayScientistMenu() {
+        Scanner inputScientist = new Scanner(System.in);
+        int userSelectionScientist;
 
-    do {
-        System.out.println("........................User: Scientist........................");
-        System.out.println("Please select the number for the action that you want to perform");
-        System.out.println("1-. Track Objects in Space");
-        System.out.println("2-. Assess Orbit Status");
-        System.out.println("3-. Back");
+        do {
+            System.out.println("........................User: Scientist........................");
+            System.out.println("Please select the number for the action that you want to perform");
+            System.out.println("1-. Track Objects in Space");
+            System.out.println("2-. Assess Orbit Status");
+            System.out.println("3-. Back");
 
-        userSelectionScientist = inputScientist.nextInt();
+            userSelectionScientist = inputScientist.nextInt();
 
-        switch (userSelectionScientist) {
-            case 1:
-                System.out.println("Please select the type of object that you want to track: ");
-                System.out.println("1-. Rocket Body");
-                System.out.println("2-. Debris");
-                System.out.println("3-. Payload");
-                System.out.println("4-. Unknown");
+            switch (userSelectionScientist) {
+                case 1:
+                    System.out.println("Please select the type of object that you want to track: ");
+                    System.out.println("1-. Rocket Body");
+                    System.out.println("2-. Debris");
+                    System.out.println("3-. Payload");
+                    System.out.println("4-. Unknown");
 
-                int objectTrack = inputScientist.nextInt();
+                    int objectTrack = inputScientist.nextInt();
 
-                if (objectTrack >= 1 && objectTrack <= 4) {
-                    missionControl.trackObjectsInSpace(objectTrack); // passes choice
-                } else {
-                    System.out.println("Invalid input. Please enter a number between 1 and 4");
-                }
+                    if (objectTrack >= 1 && objectTrack <= 4) {
+                        missionControl.trackObjectsInSpace(objectTrack); // passes choice
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 4");
+                    }
                 break;
 
-            case 2:
-                System.out.println("Please select the action that you want to perform");
-                System.out.println("1-. Track Objects in LEO");
-                System.out.println("2-. Assess if debris is still in orbit");
+                case 2:
+                    System.out.println("Please select the action that you want to perform");
+                    System.out.println("1-. Track Objects in LEO");
+                    System.out.println("2-. Assess if debris is still in orbit");
+                    //Scientist newScientist = new Scientist();
 
-                int orbitStatus = inputScientist.nextInt();
+                    int orbitStatus = inputScientist.nextInt();
 
-                switch (orbitStatus) {
-                    case 1:
+                    switch (orbitStatus) {
+                        case 1:
 
-                        //display list of all objects in the LEO and their info
-                        Scientist newScientist = new Scientist();
-                        newScientist.trackObjectsInLEO();
+                            //display list of all objects in the LEO and their info
+                            newLogger.logQueryTrackLEOObjects();
+                            missionControl.trackObjectsInLEO();
                     
+                        break;
 
+                        case 2:
+                            //orbit assessment
+                            newLogger.logDebrisOrbitStatus();
+                            missionControl.assessDebrisStillInOrbit();
+                            newLogger.logCreateExitedDebrisTxtFile();
+                            missionControl.exportExitedDebrisReport("inorbit_exited_debris_report.txt");
+                        break;
 
-                        // implement LEO tracking
+                        default:
+                            System.out.println("Invalid input. Please select a number between 1 and 2");
+                        break;
+                    }
+                break;
+
+                case 3:
+                    //Logger newLogger = new Logger();
+                    newLogger.logScientistExit();
+                    displayMainMenu(); // Go back to main menu
                     break;
 
-                    case 2:
-                        // implement orbit assessment
-                        break;
-                    default:
-                        System.out.println("Invalid input. Please select a number between 1 and 2");
-                        break;
-                }
+                default:
+                    System.out.println("Invalid input. Please enter a number between 1 and 3");
                 break;
+            }
 
-            case 3:
-                Logger newLogger = new Logger();
-                newLogger.logScientistExit();
-                displayMainMenu(); // Go back to main menu
-                break;
+        } while (userSelectionScientist != 3);
+    }
 
-            default:
-                System.out.println("Invalid input. Please enter a number between 1 and 3");
-                break;
-        }
-
-    } while (userSelectionScientist != 3);
-}
-
+    /**
+    * Method that displays the Space Agent Representative menu once the user has logged in as this user
+    * @param None
+    * @return void
+    */
     public void displaySpaceAgentRepMenu(){
 
         System.out.println("...............User: Space Agency Representative...............");
@@ -152,6 +179,11 @@ public void displayScientistMenu() {
 
     }
 
+    /**
+    * Method that displays the Policymaker menu once the user has logged in as this user
+    * @param None
+    * @return void
+    */
     public void displayPolicymakerMenu(){
 
         System.out.println(".......................User: Policymaker.......................");
@@ -172,6 +204,11 @@ public void displayScientistMenu() {
 
     }
 
+    /**
+    * Method that displays the Administrator menu once the user has logged in as this user
+    * @param None
+    * @return void
+    */
     public void displayAdministratorMenu(){
 
         System.out.println("......................User: Administrator......................");

@@ -45,6 +45,8 @@ public class DictionaryBuilder {
                 boolean isUnknownObject = (fields.length > 17 && fields[17].equalsIgnoreCase("true"));
                 int daysOld = (fields.length > 19 && !fields[19].isEmpty() && fields[19].matches("\\d+"))
                                 ? Integer.parseInt(fields[19]) : 0;
+                int conjunctionCount = (fields.length > 20 && !fields[20].isEmpty() && fields[20].matches("\\d+"))
+                                ? Integer.parseInt(fields[20]) : 0;
 
                 // Instantiate the appropriate subclass based on objectType
                 SpaceObject obj;
@@ -53,27 +55,27 @@ public class DictionaryBuilder {
                     case "debris":
                         obj = new Debris(recordId, satelliteName, country, orbitType, launchYear,
                                 launchSite, longitude, avgLongitude, geohash, hrrCategory,
-                                isNominated, hasDossier, isUnknownObject, daysOld);
+                                isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
                         break;
                     case "satellite":
                         obj = new Satellite(recordId, satelliteName, country, orbitType, launchYear,
                                 launchSite, longitude, avgLongitude, geohash, hrrCategory,
-                                isNominated, hasDossier, isUnknownObject, daysOld);
+                                isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
                         break;
                     case "rocket body":
                         obj = new RocketBody(recordId, satelliteName, country, orbitType, launchYear,
                                 launchSite, longitude, avgLongitude, geohash, hrrCategory,
-                                isNominated, hasDossier, isUnknownObject, daysOld);
+                                isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
                         break;
                     case "payload":
                         obj = new Payload(recordId, satelliteName, country, orbitType, launchYear,
                                 launchSite, longitude, avgLongitude, geohash, hrrCategory,
-                                isNominated, hasDossier, isUnknownObject, daysOld);
+                                isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
                         break;
                     case "unknown":
                         obj = new UnknownObject(recordId, satelliteName, country, orbitType, launchYear,
                                 launchSite, longitude, avgLongitude, geohash, hrrCategory,
-                                isNominated, hasDossier, isUnknownObject, daysOld);
+                                isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
                         break;
                     default:
                         System.out.println("Unknown object type: " + objectType + " for record: " + recordId);

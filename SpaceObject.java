@@ -23,11 +23,26 @@ public abstract class SpaceObject {
     protected boolean hasDossier;
     protected boolean isUnknownObject;
     protected int daysOld;
+    protected int conjunctionCount;
 
+    /**
+     * Constructs a Space object with the provided attributes.
+     *
+     * @param recordId Unique record ID of the Space Object.
+     * @param satelliteName Name of the Space Object.
+     * @param country Country of origin.
+     * @param orbitType Orbit type (LEO, GEO, etc.).
+     * @param launchYear Year the Space Object was launched.
+     * @param launchSite Code for the launch site.
+     * @param longitude Current longitude of the Space Object.
+     * @param avgLongitude Average longitude over its orbit.
+     * @param geohash Geospatial hash representing approximate location.
+     * @param daysOld Number of days since launch.
+     */
     public SpaceObject(String recordId, String satelliteName, String country, String orbitType,
                        int launchYear, String launchSite, double longitude, double avgLongitude,
                        String geohash, String hrrCategory, boolean isNominated, boolean hasDossier,
-                       boolean isUnknownObject, int daysOld) {
+                       boolean isUnknownObject, int daysOld, int conjunctionCount) {
         this.recordId = recordId;
         this.satelliteName = satelliteName;
         this.country = country;
@@ -42,6 +57,7 @@ public abstract class SpaceObject {
         this.hasDossier = hasDossier;
         this.isUnknownObject = isUnknownObject;
         this.daysOld = daysOld;
+        this.conjunctionCount = conjunctionCount;
     }
 
     public void displayInfo() {

@@ -1,10 +1,30 @@
+/**
+ * Class that represents a Payload object. Child class of SpaceObject
+ * @author Caitlin Gregory
+ * @author Daniela Gutierrez
+ */
 public class Payload extends SpaceObject {
+
+    /**
+     * Constructs a Payload object with the provided attributes.
+     *
+     * @param recordId Unique record ID of the payload.
+     * @param satelliteName Name of the payload.
+     * @param country Country of origin.
+     * @param orbitType Orbit type (LEO, GEO, etc.).
+     * @param launchYear Year the payload was launched.
+     * @param launchSite Code for the launch site.
+     * @param longitude Current longitude of the payload.
+     * @param avgLongitude Average longitude over its orbit.
+     * @param geohash Geospatial hash representing approximate location.
+     * @param daysOld Number of days since launch.
+     */
     public Payload(String recordId, String satelliteName, String country, String orbitType,
                    int launchYear, String launchSite, double longitude, double avgLongitude,
                    String geohash, String hrrCategory, boolean isNominated,
-                   boolean hasDossier, boolean isUnknownObject, int daysOld) {
+                   boolean hasDossier, boolean isUnknownObject, int daysOld, int conjunctionCount) {
         super(recordId, satelliteName, country, orbitType, launchYear, launchSite,
-              longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld);
+              longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
     }
     @Override
     public void displayInfo() {

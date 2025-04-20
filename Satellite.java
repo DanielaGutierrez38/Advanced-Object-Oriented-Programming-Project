@@ -28,9 +28,9 @@ public class Satellite extends SpaceObject {
     public Satellite(String recordId, String satelliteName, String country, String orbitType,
                  int launchYear, String launchSite, double longitude, double avgLongitude,
                  String geohash, String hrrCategory, boolean isNominated,
-                 boolean hasDossier, boolean isUnknownObject, int daysOld) {
+                 boolean hasDossier, boolean isUnknownObject, int daysOld, int conjunctionCount) {
         super(recordId, satelliteName, country, orbitType, launchYear, launchSite,
-            longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld);
+            longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
     }
     @Override
     public void displayInfo() {
