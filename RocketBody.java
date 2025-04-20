@@ -1,10 +1,30 @@
+/**
+ * Class that represents a Rocket Body object
+ * @author Caitlin Gregory
+ * @author Daniela Gutierrez
+ */
 public class RocketBody extends SpaceObject {
+
+    /**
+     * Constructs a RocketBody object with the provided attributes.
+     *
+     * @param recordId Unique record ID of the rocket body.
+     * @param satelliteName Name of the rocket body.
+     * @param country Country of origin.
+     * @param orbitType Orbit type (LEO, GEO, etc.).
+     * @param launchYear Year the rocket body was launched.
+     * @param launchSite Code for the launch site.
+     * @param longitude Current longitude of the rocket body.
+     * @param avgLongitude Average longitude over its orbit.
+     * @param geohash Geospatial hash representing approximate location.
+     * @param daysOld Number of days since launch.
+     */
     public RocketBody(String recordId, String satelliteName, String country, String orbitType,
                       int launchYear, String launchSite, double longitude, double avgLongitude,
                       String geohash, String hrrCategory, boolean isNominated,
-                      boolean hasDossier, boolean isUnknownObject, int daysOld) {
+                      boolean hasDossier, boolean isUnknownObject, int daysOld, int conjunctionCount) {
         super(recordId, satelliteName, country, orbitType, launchYear, launchSite,
-              longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld);
+              longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
     }
     @Override
     public void displayInfo() {
