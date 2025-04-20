@@ -16,3 +16,4 @@
 19-04-2025 16:12:40 Policymaker User logged out
 19-04-2025 16:12:41 Administrator User logged in
 19-04-2025 16:12:42 Administrator User logged out
+19-04-2025 16:46:08 Scientist User logged in

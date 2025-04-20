@@ -117,6 +117,8 @@ public class DisplayMenu {
 
                     case 1:
                         //display list of all objects in the LEO and their info
+                        Scientist newScientist = new Scientist();
+                        newScientist.trackObjectsInLEO();
                     break;
 
                     case 2:
