@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
-public class DisplayMenu {
-    
+public class DisplayMenu {   
+    private MissionControl missionControl = new MissionControl();
+
     public void displayMainMenu(){
 
         //int userSelection = 1;
@@ -59,94 +60,77 @@ public class DisplayMenu {
 
     }//end displayMainMenu
 
-    public void displayScientistMenu(){
+public void displayScientistMenu() {
+    Scanner inputScientist = new Scanner(System.in);
+    int userSelectionScientist;
 
+    do {
         System.out.println("........................User: Scientist........................");
         System.out.println("Please select the number for the action that you want to perform");
         System.out.println("1-. Track Objects in Space");
         System.out.println("2-. Assess Orbit Status");
         System.out.println("3-. Back");
 
-        Scanner inputScientist = new Scanner(System.in);
-        int userSelectionScientist = inputScientist.nextInt();
+        userSelectionScientist = inputScientist.nextInt();
 
-        switch (userSelectionScientist){
-
+        switch (userSelectionScientist) {
             case 1:
-
                 System.out.println("Please select the type of object that you want to track: ");
                 System.out.println("1-. Rocket Body");
                 System.out.println("2-. Debris");
                 System.out.println("3-. Payload");
                 System.out.println("4-. Unknown");
+
                 int objectTrack = inputScientist.nextInt();
 
-                switch(objectTrack) {
-
-                    case 1:
-                        //call method to print rocket bodies
-                    break;
-
-                    case 2:
-                        //call method to print debris
-                    break;
-
-                    case 3:
-                        //call method to print payload
-                    break;
-
-                    case 4:
-                        //call method to print unknown
-                    break;
-
-                    default:
-                        System.out.println("Invalid input. Please enter a number between 1 and 4");
-                    break;
-
-                }//end objectTrack
-
-            break; //end case 1
+                if (objectTrack >= 1 && objectTrack <= 4) {
+                    missionControl.trackObjectsInSpace(objectTrack); // passes choice
+                } else {
+                    System.out.println("Invalid input. Please enter a number between 1 and 4");
+                }
+                break;
 
             case 2:
                 System.out.println("Please select the action that you want to perform");
                 System.out.println("1-. Track Objects in LEO");
                 System.out.println("2-. Assess if debris is still in orbit");
+
                 int orbitStatus = inputScientist.nextInt();
 
-                switch(orbitStatus) {
-
+                switch (orbitStatus) {
                     case 1:
+
                         //display list of all objects in the LEO and their info
                         Scientist newScientist = new Scientist();
                         newScientist.trackObjectsInLEO();
+                    
+
+
+                        // implement LEO tracking
                     break;
 
                     case 2:
-                        //do calculations and update files
-                    break;
-
+                        // implement orbit assessment
+                        break;
                     default:
                         System.out.println("Invalid input. Please select a number between 1 and 2");
-                    break;
-
+                        break;
                 }
-            break;
+                break;
 
             case 3:
                 Logger newLogger = new Logger();
                 newLogger.logScientistExit();
-                //inputScientist.close();
-                displayMainMenu();
-            break;
+                displayMainMenu(); // Go back to main menu
+                break;
 
             default:
                 System.out.println("Invalid input. Please enter a number between 1 and 3");
-            break;
-
+                break;
         }
 
-
-    }
+    } while (userSelectionScientist != 3);
+}
 
     public void displaySpaceAgentRepMenu(){
 
