@@ -219,7 +219,7 @@ class Logger extends MissionControl{
 
         System.out.println(formattedDate);
 
-        String appendText = "\n" + formattedDate + " Administrator User logged out";
+        String appendText = "\n" + formattedDate + " Scientist queried Rocket Body objects.";
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
@@ -240,7 +240,7 @@ class Logger extends MissionControl{
 
         System.out.println(formattedDate);
 
-        String appendText = "\n" + formattedDate + " Administrator User logged out";
+        String appendText = "\n" + formattedDate + " Scientist queried Debris objects.";
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
@@ -261,7 +261,7 @@ class Logger extends MissionControl{
 
         System.out.println(formattedDate);
 
-        String appendText = "\n" + formattedDate + " Administrator User logged out";
+        String appendText = "\n" + formattedDate + " Scientist queried Payload Body objects.";
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
@@ -282,7 +282,7 @@ class Logger extends MissionControl{
 
         System.out.println(formattedDate);
 
-        String appendText = "\n" + formattedDate + " Administrator User logged out";
+        String appendText = "\n" + formattedDate + " Scientist queried Unknown objects.";
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("logger.txt", true));
