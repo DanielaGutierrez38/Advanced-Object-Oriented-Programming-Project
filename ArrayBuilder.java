@@ -9,6 +9,9 @@ import java.util.Map;
  */
 public class ArrayBuilder {
 
+    /**Default constructor */
+    ArrayBuilder(){}
+
     /**
      * Converts the raw lines into a 2D String array and forwards to DictionaryBuilder.
      * 

@@ -14,6 +14,7 @@ class MissionControl {
     
     /** Tracking System variable*/
     protected TrackingSystem trackingSystem; 
+    /**Curent user variable */
     private User currentUser; //unused for now
 
     /**
@@ -25,8 +26,7 @@ class MissionControl {
 
     /**
      * Search a space object based on its type
-     * @param choice
-     * @return void
+     * @param choice type of object that the user wants to query
      */
     public void trackObjectsInSpace(int choice) {
         Logger logger = new Logger(); // Log start of query
@@ -79,8 +79,6 @@ class MissionControl {
     /**
      * Assess if a space object of debris type is still in orbit by taking into consideration
      * its orbit type, longitude, age and conjunction count
-     * @param None
-     * @return void
      */
     public void assessDebrisStillInOrbit() {
 
@@ -124,8 +122,7 @@ class MissionControl {
 
     /**
      * Create a new CSV with the updated values of the Debris' orbit
-     * @param outputPath
-     * @output void
+     * @param outputPath file to write on
      */
     public void exportToUpdatedCSV(String outputPath) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(outputPath))) {
@@ -173,8 +170,7 @@ class MissionControl {
     /** 
      * Populate a txt file with the count of in orbit and exited Debris objects and some information 
      * about them
-     * @param txtPath
-     * @return void
+     * @param txtPath file to write on
     */
     public void exportExitedDebrisReport(String txtPath) {
         int inOrbitCount = 0;
@@ -213,8 +209,6 @@ class MissionControl {
 
     /**
      * Method that prints out all the objects with LEO orbit type
-     * @param None
-     * @return void
      */
     public void trackObjectsInLEO() {
 

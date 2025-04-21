@@ -10,6 +10,9 @@
  */
 class Scientist extends User{
 
+    /**Default constructor */
+    Scientist(){}
+
 }
 
 

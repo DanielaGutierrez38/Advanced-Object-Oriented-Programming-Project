@@ -4,26 +4,23 @@
  * @author Caitlin Gregory
  * @author Daniela Gutierrez
  */
-class Administrator extends User{
+public class Administrator extends User{
+
+    /** Default constructor */
+    Administrator() {}
 
     /**
     * Method that creates a new administrator user
-    * @param None
-    * @return void
     */
     private void createUser(){}
 
     /**
     * Method that manages an administrator user
-    * @param None
-    * @return void
     */
     private void manageUser(){}
 
     /**
     * Method that deletes an administrator user
-    * @param None
-    * @return void
      */
     private void deleteUser(){}
     
