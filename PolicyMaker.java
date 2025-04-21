@@ -6,5 +6,7 @@
  */
 class PolicyMaker extends User{
 
+    /**Default constructor */
+    PolicyMaker(){}
     
 }

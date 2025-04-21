@@ -24,7 +24,12 @@ public class Debris extends SpaceObject {
      * @param longitude Current longitude of the debris.
      * @param avgLongitude Average longitude over its orbit.
      * @param geohash Geospatial hash representing approximate location.
+     * @param hrrCategory Human Research Roadmap?
+     * @param isNominated Nominated boolean
+     * @param hasDossier Detailed records on the Debris
+     * @param isUnknownObject Known status of the Debris
      * @param daysOld Number of days since launch.
+     * @param conjunctionCount Recent interactions 
      */
     public Debris(String recordId, String satelliteName, String country, String orbitType,
                   int launchYear, String launchSite, double longitude, double avgLongitude,
@@ -35,24 +40,36 @@ public class Debris extends SpaceObject {
               hasDossier, isUnknownObject, daysOld, conjunctionCount);
     }
 
-    //Getters and Setters for still in orbit functionality
+    /** Getter for stillInOrbit
+     * @return stillInOrbit boolean
+    */
     public boolean isStillInOrbit() {
         return stillInOrbit;
     }
 
+    /**Setter for stillInOrbit 
+     * @param stillInOrbit boolean
+    */
     public void setStillInOrbit(boolean stillInOrbit) {
         this.stillInOrbit = stillInOrbit;
     }
 
+    /** Getter for riskLevel
+     * @return String riskLevel
+    */
     public String getRiskLevel() {
         return riskLevel;
     }
 
+    /**Setter for riskLevel 
+     * @param riskLevel String
+    */
     public void setRiskLevel(String riskLevel) {
         this.riskLevel = riskLevel;
     }
 
-    @Override
+    /**Display Debris information */
+    @Override  
     public void displayInfo() {
         System.out.println("Record ID: " + recordId);
         System.out.println("Satellite Name: " + satelliteName);

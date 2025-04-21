@@ -14,6 +14,9 @@ import java.util.Arrays;
  */
 public class DictionaryBuilder {
 
+    /**Default constructor */
+    DictionaryBuilder(){}
+
     /**
      * Parses the 2D array and constructs appropriate SpaceObject subclasses
      * based on the objectType field. Returns a map of recordId → SpaceObject.

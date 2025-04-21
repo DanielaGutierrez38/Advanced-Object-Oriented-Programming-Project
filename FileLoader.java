@@ -5,8 +5,13 @@ import java.util.Map;
 
 /**
  * Responsible for loading the file and initiating the parsing process.
+ * @author Caitlin Gregory
+ * @author Daniela Gutierrez
  */
 public class FileLoader {
+
+    /**Default constructor */
+    FileLoader(){}
 
     /**
      * Loads the file and returns a Map of space objects.

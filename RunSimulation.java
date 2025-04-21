@@ -7,6 +7,12 @@
  */
 class RunSimulation{
 
+    /**Default constructor */
+    RunSimulation(){}
+
+    /**Main method of the program 
+     * @param args main method thing
+    */
     public static void main(String[] args){
 
         DisplayMenu menu = new DisplayMenu();  //create an instance of the menu

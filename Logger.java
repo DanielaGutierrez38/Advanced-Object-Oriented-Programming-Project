@@ -11,10 +11,11 @@ import java.time.format.DateTimeFormatter;
  */
 class Logger extends MissionControl{
 
+    /**Default constructor */
+    Logger(){}
+
     /**
      * Method that appends a Scientist log in to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logScientistIn() {
 
@@ -22,7 +23,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist User logged in";
 
@@ -39,8 +40,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Space Agent Representative log in to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logSpaceAgentRepIn() {
 
@@ -48,7 +47,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Space Agent Representative User logged in";
 
@@ -65,8 +64,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Policymaker log in to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logPolicymakerIn() {
 
@@ -74,7 +71,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Policymaker User logged in";
 
@@ -91,8 +88,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends an Administrator log in to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logAdministratorIn() {
 
@@ -100,7 +95,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Administrator User logged in";
 
@@ -117,8 +112,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Scientist log out to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logScientistExit() {
 
@@ -126,7 +119,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist User logged out";
 
@@ -143,8 +136,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Space Agent Representative log out to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logSpaceAgentRepExit() {
 
@@ -152,7 +143,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Space Agent Representative User logged out";
 
@@ -169,8 +160,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Policymaker log out to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logPolicymakerExit() {
 
@@ -178,7 +167,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Policymaker User logged out";
 
@@ -195,8 +184,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends an Administrator log out to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logAdministratorExit() {
 
@@ -204,7 +191,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Administrator User logged out";
 
@@ -221,8 +208,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Rocket Body query to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logQueryRocketBody() {
 
@@ -230,7 +215,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist queried Rocket Body objects.";
 
@@ -247,8 +232,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Debris query to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logQueryDebris() {
 
@@ -256,7 +239,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist queried Debris objects.";
 
@@ -273,8 +256,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a Payload query to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logQueryPayload() {
 
@@ -282,7 +263,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist queried Payload Body objects.";
 
@@ -299,8 +280,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends an unknown object query to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logQueryUnknown() {
 
@@ -308,7 +287,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist queried Unknown objects.";
 
@@ -325,8 +304,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a LEO Object query to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logQueryTrackLEOObjects() {
 
@@ -334,7 +311,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist queried LEO Objects";
 
@@ -351,8 +328,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends an update to CSV file with debris orbit status to the logger.txt file
-     * @param None
-     * @return void
      */
     public void updateCSVFile() {
 
@@ -360,7 +335,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " CSV File was updated with debris orbit status";
 
@@ -377,8 +352,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends a debris orbit status assessment to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logDebrisOrbitStatus() {
 
@@ -386,7 +359,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " Scientist assessed orbit status of Debris";
 
@@ -403,8 +376,6 @@ class Logger extends MissionControl{
 
     /**
      * Method that appends the creation of the txt file with debris count to the logger.txt file
-     * @param None
-     * @return void
      */
     public void logCreateExitedDebrisTxtFile() {
 
@@ -412,7 +383,7 @@ class Logger extends MissionControl{
         DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String formattedDate = myDateObj.format(myFormatObj);
 
-        System.out.println(formattedDate);
+        //System.out.println(formattedDate);
 
         String appendText = "\n" + formattedDate + " TXT file was created with inorbit and exited debris count";
 

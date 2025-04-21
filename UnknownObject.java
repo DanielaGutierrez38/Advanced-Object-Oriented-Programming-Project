@@ -17,7 +17,12 @@ public class UnknownObject extends SpaceObject {
      * @param longitude Current longitude of the unknown object.
      * @param avgLongitude Average longitude over its orbit.
      * @param geohash Geospatial hash representing approximate location.
+     * @param hrrCategory Human Research Roadmap?
+     * @param isNominated Nominated boolean
+     * @param hasDossier Detailed records on the unknown object
+     * @param isUnknownObject Known status of the unknown object
      * @param daysOld Number of days since launch.
+     * @param conjunctionCount Recent interactions
      */
     public UnknownObject(String recordId, String satelliteName, String country, String orbitType,
                          int launchYear, String launchSite, double longitude, double avgLongitude,

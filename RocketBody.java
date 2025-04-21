@@ -17,7 +17,12 @@ public class RocketBody extends SpaceObject {
      * @param longitude Current longitude of the rocket body.
      * @param avgLongitude Average longitude over its orbit.
      * @param geohash Geospatial hash representing approximate location.
+     * @param hrrCategory Human Research Roadmap?
+     * @param isNominated Nominated boolean
+     * @param hasDossier Detailed records on the RocketBody
+     * @param isUnknownObject Known status of the rocket body
      * @param daysOld Number of days since launch.
+     * @param conjunctionCount Recent interactions 
      */
     public RocketBody(String recordId, String satelliteName, String country, String orbitType,
                       int launchYear, String launchSite, double longitude, double avgLongitude,
@@ -26,6 +31,8 @@ public class RocketBody extends SpaceObject {
         super(recordId, satelliteName, country, orbitType, launchYear, launchSite,
               longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
     }
+
+    /**Method to display information */
     @Override
     public void displayInfo() {
       System.out.println("Record ID: " + recordId);

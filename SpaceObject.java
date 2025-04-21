@@ -9,20 +9,36 @@
  */
 
 public abstract class SpaceObject {
+
+    /**record id */
     protected String recordId;
+    /**name of the satellite */
     protected String satelliteName;
+    /**country of origin */
     protected String country;
+    /**type of orbit */
     protected String orbitType;
+    /**year it was launched */
     protected int launchYear;
+    /**place it was launched */
     protected String launchSite;
+    /**longitude of the object */
     protected double longitude;
+    /**average longitude of the object */
     protected double avgLongitude;
+    /**geohash of the object */
     protected String geohash;
+    /**hrr category */
     protected String hrrCategory;
+    /**is nominated boolean */
     protected boolean isNominated;
+    /**dossier */
     protected boolean hasDossier;
+    /**unknown object boolean */
     protected boolean isUnknownObject;
+    /**number of days since launch */
     protected int daysOld;
+    /**recent interactions */
     protected int conjunctionCount;
 
     /**
@@ -37,7 +53,12 @@ public abstract class SpaceObject {
      * @param longitude Current longitude of the Space Object.
      * @param avgLongitude Average longitude over its orbit.
      * @param geohash Geospatial hash representing approximate location.
+     * @param hrrCategory Human Research Roadmap?
+     * @param isNominated Nominated boolean
+     * @param hasDossier Detailed records on the space object
+     * @param isUnknownObject Known status of the space object
      * @param daysOld Number of days since launch.
+     * @param conjunctionCount Recent interactions
      */
     public SpaceObject(String recordId, String satelliteName, String country, String orbitType,
                        int launchYear, String launchSite, double longitude, double avgLongitude,
@@ -60,6 +81,7 @@ public abstract class SpaceObject {
         this.conjunctionCount = conjunctionCount;
     }
 
+    /**Method to display space object info */
     public void displayInfo() {
         System.out.println("Record ID: " + recordId);
         System.out.println("Satellite Name: " + satelliteName);
@@ -77,10 +99,16 @@ public abstract class SpaceObject {
         System.out.println("Days Old: " + daysOld);
     }
 
+    /**HRR Category getter
+     * @return hrrCategory
+     */
     public String getHRRCategory() {
         return hrrCategory;
     }
 
+    /**HRR Category Setter
+     * @param hrrCategory hrr category
+     */
     public void setHRRCategory(String hrrCategory) {
         this.hrrCategory = hrrCategory;
     }

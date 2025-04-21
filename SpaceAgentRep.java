@@ -6,4 +6,7 @@
  */
 class SpaceAgentRep extends User{
 
+    /**Default Constructor */
+    SpaceAgentRep(){}
+
 }
