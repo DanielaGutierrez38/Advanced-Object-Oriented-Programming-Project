@@ -38,16 +38,16 @@ class MissionControl {
         // Log query type
         switch (choice) {
             case 1:
-                logger.logQueryRocketBody();
+                logger.log(" Scientist queried Rocket Body objects.");
                 break;
             case 2:
-                logger.logQueryDebris();
+                logger.log(" Scientist queried Debris objects.");
                 break;
             case 3:
-                logger.logQueryPayload();
+                logger.log(" Scientist queried Payload Body objects.");
                 break;
             case 4:
-                logger.logQueryUnknown();
+                logger.log(" Scientist queried Unknown objects.");
                 break;
             default:
                 System.out.println("Invalid input");
