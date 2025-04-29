@@ -13,6 +13,11 @@ public class Debris extends SpaceObject {
     private String riskLevel;
 
     /**
+     *Default constructor for testing only what we need for assess debris still in orbit
+     */
+    public Debris(){}
+
+    /**
      * Constructs a Satellite object with the provided attributes.
      *
      * @param recordId Unique record ID of the debris.

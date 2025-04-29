@@ -24,6 +24,10 @@ class MissionControl {
         this.trackingSystem = new TrackingSystem("rso_metrics.csv");
     }
 
+    public MissionControl(TrackingSystem trackingSystem) {
+        this.trackingSystem = trackingSystem;
+    }
+
     /**
      * Search a space object based on its type
      * @param choice type of object that the user wants to query

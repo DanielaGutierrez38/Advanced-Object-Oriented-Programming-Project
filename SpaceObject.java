@@ -42,6 +42,11 @@ public abstract class SpaceObject {
     protected int conjunctionCount;
 
     /**
+     * Default constructor for testing debris
+     */
+    public SpaceObject(){}
+
+    /**
      * Constructs a Space object with the provided attributes.
      *
      * @param recordId Unique record ID of the Space Object.
