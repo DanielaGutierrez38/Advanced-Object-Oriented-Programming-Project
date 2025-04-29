@@ -4,57 +4,52 @@ import java.util.Arrays;
 
 /**
  * Builds a dictionary of SpaceObject instances from a 2D array.
- * This includes Debris, Satellite, RocketBody, Payload, and UnknownObject.
- * <p>
- * The dictionary is keyed by the unique record ID for each space object.
- * </p>
+ * Includes Debris, Satellite, RocketBody, Payload, and UnknownObject.
+ * Keyed by record ID.
  * 
  * @author Caitlin Gregory
  * @author Daniela Gutierrez
  */
-public class DictionaryBuilder {
+public class DictionaryBuilder{
 
-    /**Default constructor */
-    DictionaryBuilder(){}
+    /** Default constructor */
+    DictionaryBuilder() {}
 
     /**
-     * Parses the 2D array and constructs appropriate SpaceObject subclasses
-     * based on the objectType field. Returns a map of recordId → SpaceObject.
+     * Parses the 2D array and constructs appropriate SpaceObject subclasses.
      *
      * @param data 2D array of CSV data rows split into fields
+     * @param columnIndex mapping from column names to their index in the row
      * @return Map of SpaceObject instances keyed by record ID
      */
-    public static Map<String, SpaceObject> buildFromArray(String[][] data) {
+    public static Map<String, SpaceObject> buildFromArray(String[][] data, Map<String, Integer> columnIndex){
         Map<String, SpaceObject> spaceMap = new LinkedHashMap<>();
 
-        for (String[] fields : data) {
-            try {
-                // Common field parsing
-                String recordId = fields[0];
-                String satelliteName = fields[2];
-                String country = fields[3];
-                String orbitType = fields[4];
-                String objectType = fields[5];
-                int launchYear = fields[6].isEmpty() ? 0 : Integer.parseInt(fields[6]);
-                String launchSite = fields[7];
-                double longitude = fields[8].isEmpty() ? 0.0 : Double.parseDouble(fields[8]);
-                double avgLongitude = fields[9].isEmpty() ? 0.0 : Double.parseDouble(fields[9]);
-                String geohash = fields[10] + ", " + fields[11];
+        for (String[] fields : data){
+            try{
+                // Mandatory fields
+                String recordId = getSafeField(fields, columnIndex, "record_id", "unknown");
+                String satelliteName = getSafeField(fields, columnIndex, "satellite_name", "unknown");
+                String country = getSafeField(fields, columnIndex, "country", "unknown");
+                String orbitType = getSafeField(fields, columnIndex, "approximate_orbit_type", "unknown");
+                String objectType = getSafeField(fields, columnIndex, "object_type", "unknown");
+                int launchYear = parseIntSafe(getSafeField(fields, columnIndex, "launch_year", "0"));
+                String launchSite = getSafeField(fields, columnIndex, "launch_site", "unknown");
+                double longitude = parseDoubleSafe(getSafeField(fields, columnIndex, "longitude", "0.0"));
+                double avgLongitude = parseDoubleSafe(getSafeField(fields, columnIndex, "avg_longitude", "0.0"));
+                String geohash = getSafeField(fields, columnIndex, "geohash", "unknown");
 
-                // Optional/defensive field parsing
-                String hrrCategory = (fields.length > 12 && !fields[12].isEmpty()) ? fields[12] : "N/A";
-                boolean isNominated = (fields.length > 13 && fields[13].equalsIgnoreCase("true"));
-                boolean hasDossier = (fields.length > 15 && fields[15].equalsIgnoreCase("true"));
-                boolean isUnknownObject = (fields.length > 17 && fields[17].equalsIgnoreCase("true"));
-                int daysOld = (fields.length > 19 && !fields[19].isEmpty() && fields[19].matches("\\d+"))
-                                ? Integer.parseInt(fields[19]) : 0;
-                int conjunctionCount = (fields.length > 20 && !fields[20].isEmpty() && fields[20].matches("\\d+"))
-                                ? Integer.parseInt(fields[20]) : 0;
+                // Optional fields (if they exist)
+                String hrrCategory = getSafeField(fields, columnIndex, "hrr_category", "N/A");
+                boolean isNominated = parseBooleanSafe(fields, columnIndex, "is_nominated");
+                boolean hasDossier = parseBooleanSafe(fields, columnIndex, "has_dossier");
+                boolean isUnknownObject = parseBooleanSafe(fields, columnIndex, "is_unk_object");
+                int daysOld = parseIntSafe(getSafeField(fields, columnIndex, "days_old", "0"));
+                int conjunctionCount = parseIntSafe(getSafeField(fields, columnIndex, "conjunction_count", "0"));
 
-                // Instantiate the appropriate subclass based on objectType
+                // Instantiate correct SpaceObject subclass
                 SpaceObject obj;
-
-                switch (objectType.toLowerCase()) {
+                switch (objectType.toLowerCase()){
                     case "debris":
                         obj = new Debris(recordId, satelliteName, country, orbitType, launchYear,
                                 launchSite, longitude, avgLongitude, geohash, hrrCategory,
@@ -85,13 +80,50 @@ public class DictionaryBuilder {
                         continue;  // Skip unknown types
                 }
 
-                spaceMap.put(recordId, obj);  // Store parsed object
+                spaceMap.put(recordId, obj);
 
-            } catch (Exception e) {
+            } catch (Exception e){
                 System.out.println("Error parsing row [" + Arrays.toString(fields) + "]: " + e.getMessage());
             }
         }
-
         return spaceMap;
+    }
+
+    /** Safe Integer parsing */
+    private static int parseIntSafe(String value){
+        if (value == null || value.isEmpty()) return 0;
+        try {
+            return Integer.parseInt(value.trim());
+        } catch (NumberFormatException e){
+            return 0;
+        }
+    }
+
+    /** Safe Double parsing */
+    private static double parseDoubleSafe(String value){
+        if (value == null || value.isEmpty()) return 0.0;
+        try {
+            return Double.parseDouble(value.trim());
+        } catch (NumberFormatException e){
+            return 0.0;
+        }
+    }
+
+    /** Super-safe field getter */
+    private static String getSafeField(String[] fields, Map<String, Integer> map, String key, String defaultVal){
+        if (!map.containsKey(key)){
+            return defaultVal;
+        }
+        Integer index = map.get(key);
+        if (index == null || index < 0 || index >= fields.length){
+            return defaultVal;
+        }
+        return fields[index];
+    }
+
+    /** Super-safe Boolean parser */
+    private static boolean parseBooleanSafe(String[] fields, Map<String, Integer> map, String key) {
+        String value = getSafeField(fields, map, key, "false");
+        return value.equalsIgnoreCase("true");
     }
 }

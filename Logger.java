@@ -9,8 +9,8 @@ import java.time.format.DateTimeFormatter;
  * @author Daniela Gutierrez
  * @author Caitlin Gregory
  */
-class Logger extends MissionControl{
-
+class Logger{
+// Singlton 
     /**Default constructor */
     Logger(){}
 

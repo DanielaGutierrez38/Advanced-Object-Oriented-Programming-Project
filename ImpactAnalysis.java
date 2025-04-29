@@ -1,14 +1,19 @@
 import java.util.List;
+/**
+ * This class will implement the long term impact functionality of the space agency representative
+ */
+class ImpactAnalysis extends MissionControl {
 
-/**This class will implement the long term impact functionality of the space agency representative*/
-class ImpactAnalysis extends MissionControl{
+    /** Constructor that accepts a TrackingSystem */
+    ImpactAnalysis(TrackingSystem trackingSystem) {
+        super(trackingSystem); // Pass the tracking system to the parent class
+    }
 
-    /**Default constructor */
-    ImpactAnalysis(){}
-
-    /**Mathod to analyze long term impact
+    /**
+     * Method to analyze long term impact
      * @param objectList list of SpaceObjects
      */
-    public void analyzeLongTermImpact(List<SpaceObject> objectList) {}
-    
+    public void analyzeLongTermImpact(List<SpaceObject> objectList) {
+        // Your analysis code will go here later
+    }
 }

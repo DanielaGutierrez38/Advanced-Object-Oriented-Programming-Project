@@ -8,20 +8,22 @@ import java.lang.*;
  * @author Daniela Gutierrez
  */
 public class DisplayMenu {   
-
+// Interface 
     /**Default constructor */
-    DisplayMenu(){}
+    private MissionControl missionControl;
 
-    /** Create a new MissionControl variable to call its methods to track, search and assess */
-    private MissionControl missionControl = new MissionControl();
     /** Create a new Logger variable to log user interactions */
     Logger newLogger = new Logger();
+
+    /** Create a new MissionControl variable to call its methods to track, search and assess */
+    public DisplayMenu(MissionControl missionControl) {
+        this.missionControl = missionControl;
+    }
 
     /**
      * Method that displays the main menu
      */
     public void displayMainMenu(){
-
         int userSelection = 1;
 
         do{
