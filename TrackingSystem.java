@@ -21,6 +21,12 @@ public class TrackingSystem {
     private Map<String, SpaceObject> objects;
 
     /**
+     * Default constructor
+     * 
+     */
+    public TrackingSystem(){}
+
+    /**
      * Constructor that loads objects from the given CSV file.
      * 
      * @param filePath path to the CSV file
@@ -47,4 +53,13 @@ public class TrackingSystem {
     public Map<String, SpaceObject> getAllObjects() {
         return objects;
     }
+
+    /**
+     * For testing
+     * @param objects
+     */
+    public void setObjects(Map<String, SpaceObject> objects) {
+        this.objects = objects;
+    }
+
 }

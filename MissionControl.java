@@ -20,9 +20,18 @@ class MissionControl {
     /**
      * Mission control constructor that initializes a Tracking System object to read the csv file
      */
-    public MissionControl(TrackingSystem trackingSystem) {
-        this.trackingSystem = trackingSystem;   // Use the provided system
+    public MissionControl() {
+        this.trackingSystem = new TrackingSystem("rso_metrics.csv");
     }
+
+    public MissionControl(TrackingSystem trackingSystem) {
+        this.trackingSystem = trackingSystem;
+    }
+
+    /**
+     * Search a space object based on its type
+     * @param choice type of object that the user wants to query
+     */
 
     // Accept 'choice' passed in from DisplayMenu
     public void trackObjectsInSpace(int choice) {
