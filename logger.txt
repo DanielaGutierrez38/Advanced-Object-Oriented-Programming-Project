@@ -105,3 +105,34 @@
 >>>>>>> 5644c17 (Uploading the lab report)
 
 20-04-2025 21:43:25 CSV File was updated with debris orbit status
+23-04-2025 14:46:46 Scientist User logged in
+23-04-2025 15:21:23 Scientist User logged in
+23-04-2025 15:21:33 Scientist queried Rocket Body objects.
+23-04-2025 15:21:46 Scientist queried Debris objects.
+23-04-2025 15:21:53 Scientist queried Payload Body objects.
+23-04-2025 15:22:00 Scientist queried Unknown objects.
+23-04-2025 15:22:12 Scientist queried LEO Objects
+23-04-2025 15:22:48 Scientist assessed orbit status of Debris
+23-04-2025 15:22:48 TXT file was created with inorbit and exited debris count
+23-04-2025 15:23:22 Scientist assessed orbit status of Debris
+23-04-2025 15:23:22 TXT file was created with inorbit and exited debris count
+23-04-2025 15:23:25 Scientist User logged out
+28-04-2025 14:25:34 Scientist User logged in
+28-04-2025 14:25:37 Scientist queried Rocket Body objects.
+28-04-2025 14:25:40 Scientist User logged out
+28-04-2025 14:25:41 CSV File was updated with debris orbit status
+28-04-2025 14:31:13 Scientist User logged in
+28-04-2025 14:31:15 Scientist queried Debris objects.
+28-04-2025 14:31:17 Scientist User logged out
+28-04-2025 14:31:19 CSV File was updated with debris orbit status
+28-04-2025 20:07:54 Scientist User logged in
+28-04-2025 20:07:59 Scientist queried Rocket Body objects.
+28-04-2025 20:08:06 Scientist queried Debris objects.
+28-04-2025 20:09:59 Scientist User logged in
+28-04-2025 20:24:36 Scientist User logged in
+28-04-2025 20:24:38 Scientist queried Rocket Body objects.
+28-04-2025 20:24:46 Scientist queried Debris objects.
+28-04-2025 20:24:52 Scientist queried Payload Body objects.
+28-04-2025 20:24:58 Scientist queried Unknown objects.
+28-04-2025 20:25:01 Scientist User logged out
+28-04-2025 20:25:01 CSV File was updated with debris orbit status
