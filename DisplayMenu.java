@@ -44,28 +44,28 @@ public class DisplayMenu {
                 switch(userSelection){
 
                     case 1:
-                        newLogger.logScientistIn();
+                        newLogger.log(" Scientist User logged in");
                         displayScientistMenu();
                     break;
 
                     case 2:
-                        newLogger.logSpaceAgentRepIn();
+                        newLogger.log(" Space Agent Representative User logged in");
                         displaySpaceAgentRepMenu();
                     break;
 
                     case 3:
-                        newLogger.logPolicymakerIn();
+                        newLogger.log(" Policymaker User logged in");
                         displayPolicymakerMenu();
                     break;
 
                     case 4:
-                        newLogger.logAdministratorIn();
+                        newLogger.log(" Administrator User logged in");
                         displayAdministratorMenu();
                     break;
 
                     case 5:
                         //input.close();
-                        newLogger.updateCSVFile();
+                        newLogger.log(" CSV File was updated with debris orbit status");
                         missionControl.exportToUpdatedCSV("updated_rso_metrics.csv");
                         System.out.println("Thank you for using the system! See you next time :)");
                         System.exit(0);
@@ -142,16 +142,16 @@ public class DisplayMenu {
                                 case 1:
 
                                     //display list of all objects in the LEO and their info
-                                    newLogger.logQueryTrackLEOObjects();
+                                    newLogger.log(" Scientist queried LEO Objects");
                                     missionControl.trackObjectsInLEO();
                     
                                 break;
 
                                 case 2:
                                     //orbit assessment
-                                    newLogger.logDebrisOrbitStatus();
+                                    newLogger.log(" Scientist assessed orbit status of Debris");
                                     missionControl.assessDebrisStillInOrbit();
-                                    newLogger.logCreateExitedDebrisTxtFile();
+                                    newLogger.log(" TXT file was created with inorbit and exited debris count");
                                     missionControl.exportExitedDebrisReport("inorbit_exited_debris_report.txt");
                                 break;
 
@@ -169,7 +169,7 @@ public class DisplayMenu {
 
                     case 3:
                         //Logger newLogger = new Logger();
-                        newLogger.logScientistExit();
+                        newLogger.log(" Scientist User logged out");
                         displayMainMenu(); // Go back to main menu
                         break;
 
@@ -199,12 +199,11 @@ public class DisplayMenu {
 
         Scanner inputSAR = new Scanner(System.in);
         int userSelectionSAR = inputSAR.nextInt();
-        Logger spaceAgentLogger = new Logger();
 
         try{
             if (userSelectionSAR == 3) {
                 //inputSAR.close();
-                spaceAgentLogger.logSpaceAgentRepExit();
+                newLogger.log(" Space Agent Representative User logged out");
                 displayMainMenu();
             }
         } catch (InputMismatchException e) {
@@ -227,12 +226,11 @@ public class DisplayMenu {
 
         Scanner inputPM = new Scanner(System.in);
         int userSelectionPM = inputPM.nextInt();
-        Logger policymakerLogger = new Logger();
 
         try{
             if (userSelectionPM == 3) {
                 //inputPM.close();
-                policymakerLogger.logPolicymakerExit();
+                newLogger.log(" Policymaker User logged out");
                 displayMainMenu();
             }
         } catch (InputMismatchException e) {
@@ -256,12 +254,11 @@ public class DisplayMenu {
 
         Scanner inputAdmin = new Scanner(System.in);
         int userSelectionAdmin = inputAdmin.nextInt();
-        Logger administratorLogger = new Logger();
 
         try{
             if (userSelectionAdmin == 4) {
                 //inputAdmin.close();
-                administratorLogger.logAdministratorExit();
+                newLogger.log(" Administrator User logged out");
                 displayMainMenu();
             }
         } catch (InputMismatchException e) {
