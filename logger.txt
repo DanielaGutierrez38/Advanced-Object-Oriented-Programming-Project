@@ -141,3 +141,8 @@
 28-04-2025 22:08:01 Scientist queried Unknown objects.
 28-04-2025 22:08:45 Scientist User logged out
 28-04-2025 22:08:47 CSV File was updated with debris orbit status
+30-04-2025 13:11:37 Scientist User logged in
+30-04-2025 13:11:39 Scientist queried Rocket Body objects.
+30-04-2025 13:11:41 Scientist User logged out
+30-04-2025 13:11:43 CSV File was updated with debris orbit status
+05-05-2025 11:16:23  CSV File was updated with debris orbit status

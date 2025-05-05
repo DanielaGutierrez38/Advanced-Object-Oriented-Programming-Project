@@ -13,7 +13,7 @@ public class DisplayMenu {
     private MissionControl missionControl;
 
     /** Create a new Logger variable to log user interactions */
-    Logger newLogger = new Logger();
+    Logger logger = Logger.getInstance();
 
     /** Create a new MissionControl variable to call its methods to track, search and assess */
     public DisplayMenu(MissionControl missionControl) {
@@ -44,28 +44,28 @@ public class DisplayMenu {
                 switch(userSelection){
 
                     case 1:
-                        newLogger.log(" Scientist User logged in");
+                        Logger.getInstance().log(" Scientist User logged in");
                         displayScientistMenu();
                     break;
 
                     case 2:
-                        newLogger.log(" Space Agent Representative User logged in");
+                        Logger.getInstance().log(" Space Agent Representative User logged in");
                         displaySpaceAgentRepMenu();
                     break;
 
                     case 3:
-                        newLogger.log(" Policymaker User logged in");
+                        Logger.getInstance().log(" Policymaker User logged in");
                         displayPolicymakerMenu();
                     break;
 
                     case 4:
-                        newLogger.log(" Administrator User logged in");
+                        Logger.getInstance().log(" Administrator User logged in");
                         displayAdministratorMenu();
                     break;
 
                     case 5:
                         //input.close();
-                        newLogger.log(" CSV File was updated with debris orbit status");
+                        Logger.getInstance().log(" CSV File was updated with debris orbit status");
                         missionControl.exportToUpdatedCSV("updated_rso_metrics.csv");
                         System.out.println("Thank you for using the system! See you next time :)");
                         System.exit(0);
@@ -142,16 +142,16 @@ public class DisplayMenu {
                                 case 1:
 
                                     //display list of all objects in the LEO and their info
-                                    newLogger.log(" Scientist queried LEO Objects");
+                                    Logger.getInstance().log(" Scientist queried LEO Objects");
                                     missionControl.trackObjectsInLEO();
                     
                                 break;
 
                                 case 2:
                                     //orbit assessment
-                                    newLogger.log(" Scientist assessed orbit status of Debris");
+                                    Logger.getInstance().log(" Scientist assessed orbit status of Debris");
                                     missionControl.assessDebrisStillInOrbit();
-                                    newLogger.log(" TXT file was created with inorbit and exited debris count");
+                                    Logger.getInstance().log(" TXT file was created with inorbit and exited debris count");
                                     missionControl.exportExitedDebrisReport("inorbit_exited_debris_report.txt");
                                 break;
 
@@ -168,8 +168,7 @@ public class DisplayMenu {
                     break;
 
                     case 3:
-                        //Logger newLogger = new Logger();
-                        newLogger.log(" Scientist User logged out");
+                        Logger.getInstance().log(" Scientist User logged out");
                         displayMainMenu(); // Go back to main menu
                         break;
 
@@ -202,8 +201,7 @@ public class DisplayMenu {
 
         try{
             if (userSelectionSAR == 3) {
-                //inputSAR.close();
-                newLogger.log(" Space Agent Representative User logged out");
+                Logger.getInstance().log(" Space Agent Representative User logged out");
                 displayMainMenu();
             }
         } catch (InputMismatchException e) {
@@ -229,8 +227,7 @@ public class DisplayMenu {
 
         try{
             if (userSelectionPM == 3) {
-                //inputPM.close();
-                newLogger.log(" Policymaker User logged out");
+                Logger.getInstance().log(" Policymaker User logged out");
                 displayMainMenu();
             }
         } catch (InputMismatchException e) {
@@ -257,8 +254,7 @@ public class DisplayMenu {
 
         try{
             if (userSelectionAdmin == 4) {
-                //inputAdmin.close();
-                newLogger.log(" Administrator User logged out");
+                Logger.getInstance().log( " Administrator User logged out");
                 displayMainMenu();
             }
         } catch (InputMismatchException e) {

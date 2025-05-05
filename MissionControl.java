@@ -35,21 +35,21 @@ class MissionControl {
 
     // Accept 'choice' passed in from DisplayMenu
     public void trackObjectsInSpace(int choice) {
-        Logger logger = new Logger(); // Log start of query
+        Logger logger = Logger.getInstance(); // Log start of query
 
         // Log query type
         switch (choice) {
             case 1:
-                logger.log(" Scientist queried Rocket Body objects.");
+                Logger.getInstance().log( " Scientist queried Rocket Body objects.");
                 break;
             case 2:
-                logger.log(" Scientist queried Debris objects.");
+                Logger.getInstance().log( " Scientist queried Debris objects.");
                 break;
             case 3:
-                logger.log(" Scientist queried Payload Body objects.");
+                Logger.getInstance().log( " Scientist queried Payload Body objects.");
                 break;
             case 4:
-                logger.log(" Scientist queried Unknown objects.");
+                Logger.getInstance().log( " Scientist queried Unknown objects.");
                 break;
             default:
                 System.out.println("Invalid input");
