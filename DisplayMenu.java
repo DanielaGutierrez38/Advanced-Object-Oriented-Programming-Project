@@ -186,8 +186,8 @@ public class DisplayMenu {
     }
 
     /**
-    * Method that displays the Space Agent Representative menu once the user has logged in as this user
-    */
+     * Method that displays the Space Agent Representative menu once the user has logged in as this user
+     */
     public void displaySpaceAgentRepMenu(){
 
         System.out.println("...............User: Space Agency Representative...............");
@@ -197,19 +197,62 @@ public class DisplayMenu {
         System.out.println("3-. Back");
 
         Scanner inputSAR = new Scanner(System.in);
-        int userSelectionSAR = inputSAR.nextInt();
+        int userSelectionSAR = -1;
 
-        try{
-            if (userSelectionSAR == 3) {
-                Logger.getInstance().log(" Space Agent Representative User logged out");
-                displayMainMenu();
+        try {
+            userSelectionSAR = inputSAR.nextInt();  // Get input
+
+            switch (userSelectionSAR){
+                case 1:
+                    // Call the method to analyze long-term impact
+                    Logger.getInstance().log(" Space Agent Rep selected Analyze Long-Term Impact");
+                    missionControl.analyzeLongTermImpact();
+                    break;
+
+                case 2:
+                    // Prompt and call density report
+                    Logger.getInstance().log("Space Agent Rep selected Generate Density Report");
+
+                    while (true) {
+                        try {
+                            System.out.print("Enter minimum longitude: ");
+                            double minLong = inputSAR.nextDouble();
+
+                            System.out.print("Enter maximum longitude: ");
+                            double maxLong = inputSAR.nextDouble();
+
+                            missionControl.generateDensityReport(minLong, maxLong);
+                            break; // exit loop after successful input and report generation
+
+                        } catch (InputMismatchException e) {
+                            System.out.println("[ERROR] Invalid input. Please enter numeric values for longitude.");
+                            inputSAR.nextLine(); // clear invalid input from scanner
+
+                        } catch (Exception e) {
+                            System.out.println("[ERROR] An unexpected error occurred: " + e.getMessage());
+                            break; // break to avoid infinite loop
+                        }
+                    }
+                case 3:
+                    Logger.getInstance().log(" Space Agent Representative User logged out");
+                    displayMainMenu();  // Return to main menu
+                    break;
+
+                default:
+                    System.out.println("Invalid input. Please enter a number between 1 and 3.");
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input. Please enter a number between 1 and 3.");
-            inputSAR.next();
+
+        } catch (InputMismatchException e){
+            System.out.println("Invalid input. Please enter a valid number.");
+            inputSAR.next();  // Clear bad input
         }
 
+        // Re-display the SAR menu until they choose to go back
+        if (userSelectionSAR != 3){
+            displaySpaceAgentRepMenu();
+        }
     }
+
 
     /**
     * Method that displays the Policymaker menu once the user has logged in as this user
@@ -226,11 +269,11 @@ public class DisplayMenu {
         int userSelectionPM = inputPM.nextInt();
 
         try{
-            if (userSelectionPM == 3) {
+            if (userSelectionPM == 3){
                 Logger.getInstance().log(" Policymaker User logged out");
                 displayMainMenu();
             }
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException e){
             System.out.println("Invalid input. Please enter a number between 1 and 3.");
             inputPM.next();
         }
@@ -253,11 +296,11 @@ public class DisplayMenu {
         int userSelectionAdmin = inputAdmin.nextInt();
 
         try{
-            if (userSelectionAdmin == 4) {
+            if (userSelectionAdmin == 4){
                 Logger.getInstance().log( " Administrator User logged out");
                 displayMainMenu();
             }
-        } catch (InputMismatchException e) {
+        } catch (InputMismatchException e){
             System.out.println("Invalid input. Please enter a number between 1 and 4.");
             inputAdmin.next();
         }

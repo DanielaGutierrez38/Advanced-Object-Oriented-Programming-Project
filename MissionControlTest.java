@@ -1,101 +1,104 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.HashMap;
+import java.io.*;
+import java.util.*;
 
+/**
+ * JUnit test class for verifying the functionality of the MissionControl class.
+ * 
+ * It includes tests for:
+ * - Analyzing long-term impact of space debris in LEO with specified constraints.
+ * - Generating a density report for space objects within a specified longitude range.
+ * 
+ * These tests redirect standard output to validate printed content from the simulation.
+ * 
+ * @author Caitlin Gregory
+ */
 class MissionControlTest {
 
     private MissionControl missionControl;
     private TrackingSystem trackingSystem;
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
 
-    @BeforeEach //set up objects
+    /**
+     * Sets up the test environment before each test case.
+     * Redirects system output and initializes the test objects.
+     */
+    @BeforeEach
     void setUp() {
-        trackingSystem = new TrackingSystem(); 
-        trackingSystem.setObjects(new HashMap<>()); 
+        // Redirect output to capture printed results
+        System.setOut(new PrintStream(outContent));
 
+        // Initialize test TrackingSystem and MissionControl
+        trackingSystem = new TrackingSystem();
+        trackingSystem.setObjects(new HashMap<>());
         missionControl = new MissionControl(trackingSystem);
 
-        //Low Risk debris (orbital drift = 3)
-        Debris lowRiskDebris = new Debris();
-        lowRiskDebris.orbitType = "LEO";
-        lowRiskDebris.longitude = 103;
-        lowRiskDebris.avgLongitude = 100;
-        lowRiskDebris.daysOld = 1000;
-        lowRiskDebris.conjunctionCount = 2;
-        trackingSystem.getAllObjects().put("lowRisk", lowRiskDebris);
-
-        //Moderate Risk debris (orbital drift = 15)
-        Debris moderateRiskDebris = new Debris();
-        moderateRiskDebris.orbitType = "HEO";
-        moderateRiskDebris.longitude = 115;
-        moderateRiskDebris.avgLongitude = 100;
-        moderateRiskDebris.daysOld = 800;
-        moderateRiskDebris.conjunctionCount = 3;
-        trackingSystem.getAllObjects().put("moderateRisk", moderateRiskDebris);
-
-        //High Risk debris (orbital drift = 80)
-        Debris highRiskDebris = new Debris();
-        highRiskDebris.orbitType = "GEO";
-        highRiskDebris.longitude = 180;
-        highRiskDebris.avgLongitude = 100;
-        highRiskDebris.daysOld = 500;
-        highRiskDebris.conjunctionCount = 5;
-        trackingSystem.getAllObjects().put("highRisk", highRiskDebris);
-
-        //Exited debris (not in orbit)
-        Debris exitedDebris = new Debris();
-        exitedDebris.orbitType = "Unknown Orbit Category"; 
-        exitedDebris.longitude = 100;
-        exitedDebris.avgLongitude = 90;
-        exitedDebris.daysOld = 1000;
-        exitedDebris.conjunctionCount = 0;
-        trackingSystem.getAllObjects().put("exitedDebris", exitedDebris);
+        // Add sample space objects to simulate filtering
+        trackingSystem.getAllObjects().put("qualifying", new Debris("9999", "TestSat", "US", "LEO", 2022, "VAFB",
+                45.0, 45.0, "geo", "HRR", false, false, false, 300, 5));
+        trackingSystem.getAllObjects().put("nonLEO", new Debris("9998", "NonLEO", "US", "GEO", 2022, "VAFB",
+                45.0, 45.0, "geo", "HRR", false, false, false, 300, 5));
+        trackingSystem.getAllObjects().put("tooYoung", new Debris("9997", "Young", "US", "LEO", 2022, "VAFB",
+                45.0, 45.0, "geo", "HRR", false, false, false, 100, 5));
+        trackingSystem.getAllObjects().put("noConj", new Debris("9996", "NoConj", "US", "LEO", 2022, "VAFB",
+                45.0, 45.0, "geo", "HRR", false, false, false, 300, 0));
     }
 
-    @AfterEach //tear down objects after tests
+    /**
+     * Cleans up after each test by restoring the original system output
+     * and resetting the output buffer.
+     */
+    @AfterEach
     void tearDown() {
-        missionControl = null;
-        trackingSystem = null;
+        System.setOut(originalOut);
+        outContent.reset();
     }
 
-    //testing low, moderate and highr risk debris that is still in orbit
+    /**
+     * Tests that the `analyzeLongTermImpact()` method only prints objects that:
+     * - Are in LEO
+     * - Are older than 200 days
+     * - Have conjunction count > 0
+     * 
+     * Validates output content by checking presence or absence of record IDs.
+     */
     @Test
-    void testLowRiskDebris() {
-        missionControl.assessDebrisStillInOrbit();
-        Debris lowRisk = (Debris) trackingSystem.getAllObjects().get("lowRisk");
+    void testAnalyzeLongTermImpact() {
+        outContent.reset(); // Clear output buffer
 
-        //assertions and message if the assertion fails
-        assertTrue(lowRisk.isStillInOrbit(), "LowRisk debris should be still in orbit");
-        assertEquals("Low Risk", lowRisk.getRiskLevel(), "LowRisk debris should be Low Risk");
+        missionControl.analyzeLongTermImpact();
+
+        String output = outContent.toString();
+
+        assertTrue(output.contains("Record ID: 9999"), "Should include qualifying object");
+        assertFalse(output.contains("9998"), "Should exclude non-LEO object");
+        assertFalse(output.contains("9997"), "Should exclude young object");
+        assertFalse(output.contains("9996"), "Should exclude object with 0 conjunctions");
     }
 
+    /**
+     * Tests that the `generateDensityReport()` method only prints objects that
+     * fall within the specified longitude range.
+     * 
+     * Checks output to verify correct inclusion and exclusion of object IDs.
+     */
     @Test
-    void testModerateRiskDebris() {
-        missionControl.assessDebrisStillInOrbit();
-        Debris moderateRisk = (Debris) trackingSystem.getAllObjects().get("moderateRisk");
+    void testGenerateDensityReport() {
+        outContent.reset();
 
-        assertTrue(moderateRisk.isStillInOrbit(), "ModerateRisk debris should be still in orbit");
-        assertEquals("Moderate Risk", moderateRisk.getRiskLevel(), "ModerateRisk debris should be Moderate Risk");
-    }
+        // Add sample debris objects for testing range filtering
+        trackingSystem.getAllObjects().put("inRange", new Debris("123", "InRange", "US", "LEO", 2021, "CCAFS",
+                100.0, 90.0, "abc", "HRR", false, false, false, 100, 1));
+        trackingSystem.getAllObjects().put("outRange", new Debris("124", "OutRange", "US", "LEO", 2021, "CCAFS",
+                1000.0, 90.0, "abc", "HRR", false, false, false, 100, 1));
 
-    @Test
-    void testHighRiskDebris() {
-        missionControl.assessDebrisStillInOrbit();
-        Debris highRisk = (Debris) trackingSystem.getAllObjects().get("highRisk");
+        missionControl.generateDensityReport(10, 200);
 
-        assertTrue(highRisk.isStillInOrbit(), "HighRisk debris should be still in orbit");
-        assertEquals("High Risk", highRisk.getRiskLevel(), "HighRisk debris should be High Risk");
-    }
-
-    //testing not still in orbit debris
-    @Test
-    void testDebrisNotStillInOrbit() {
-        missionControl.assessDebrisStillInOrbit();
-        Debris fetchedDebris = (Debris) trackingSystem.getAllObjects().get("exitedDebris");
-
-        assertFalse(fetchedDebris.isStillInOrbit(), "Debris should NOT be still in orbit");
-        assertEquals("Low Risk", fetchedDebris.getRiskLevel(), "Risk level should be Low Risk");
+        String output = outContent.toString();
+        assertTrue(output.contains("Record ID: 123"), "Should include object in range");
+        assertFalse(output.contains("Record ID: 124"), "Should not include object out of range");
     }
 }

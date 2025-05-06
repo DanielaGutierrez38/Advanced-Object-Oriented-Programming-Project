@@ -146,3 +146,123 @@
 30-04-2025 13:11:41 Scientist User logged out
 30-04-2025 13:11:43 CSV File was updated with debris orbit status
 05-05-2025 11:16:23  CSV File was updated with debris orbit status
+05-05-2025 11:56:05  Space Agent Representative User logged in
+05-05-2025 12:07:25  CSV File was updated with debris orbit status
+05-05-2025 12:18:46  Space Agent Representative User logged in
+05-05-2025 12:18:48  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 12:18:52  Space Agent Rep selected Generate Density Report
+05-05-2025 13:10:46  Space Agent Representative User logged out
+05-05-2025 13:10:47  CSV File was updated with debris orbit status
+05-05-2025 13:39:15  Space Agent Representative User logged in
+05-05-2025 13:39:16  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 13:39:21  Space Agent Representative User logged out
+05-05-2025 13:39:22  CSV File was updated with debris orbit status
+05-05-2025 14:13:39  Space Agent Representative User logged in
+05-05-2025 14:13:40  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 14:40:34  Space Agent Representative User logged out
+05-05-2025 14:40:36  CSV File was updated with debris orbit status
+05-05-2025 14:40:45  Space Agent Representative User logged in
+05-05-2025 14:40:48  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 14:41:13  Space Agent Representative User logged out
+05-05-2025 14:41:14  CSV File was updated with debris orbit status
+05-05-2025 14:43:24  Space Agent Representative User logged in
+05-05-2025 14:43:25  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 14:44:46  Space Agent Representative User logged out
+05-05-2025 14:44:46  CSV File was updated with debris orbit status
+05-05-2025 14:44:55  Space Agent Representative User logged in
+05-05-2025 14:44:57  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 14:44:59  Space Agent Representative User logged out
+05-05-2025 14:45:00  CSV File was updated with debris orbit status
+05-05-2025 14:50:57  Space Agent Representative User logged in
+05-05-2025 14:51:00  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 14:51:10  Space Agent Representative User logged out
+05-05-2025 14:51:11  CSV File was updated with debris orbit status
+05-05-2025 15:12:21  CSV File was updated with debris orbit status
+05-05-2025 15:12:30  Space Agent Representative User logged in
+05-05-2025 15:12:32  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:15:38  Space Agent Representative User logged out
+05-05-2025 15:15:39  CSV File was updated with debris orbit status
+05-05-2025 15:17:01  Space Agent Representative User logged in
+05-05-2025 15:17:02  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:19:00  Space Agent Representative User logged out
+05-05-2025 15:19:01  CSV File was updated with debris orbit status
+05-05-2025 15:19:12  Space Agent Representative User logged in
+05-05-2025 15:19:13  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:20:54  Space Agent Representative User logged out
+05-05-2025 15:20:55  CSV File was updated with debris orbit status
+05-05-2025 15:21:04  Space Agent Representative User logged in
+05-05-2025 15:21:07  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:24:05  Space Agent Representative User logged out
+05-05-2025 15:24:06  CSV File was updated with debris orbit status
+05-05-2025 15:38:02  Space Agent Representative User logged in
+05-05-2025 15:38:08  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:38:29  Space Agent Representative User logged out
+05-05-2025 15:38:30  CSV File was updated with debris orbit status
+05-05-2025 15:41:24  Space Agent Representative User logged in
+05-05-2025 15:41:25  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:44:26  Space Agent Rep selected Generate Density Report
+05-05-2025 15:44:38  Space Agent Representative User logged out
+05-05-2025 15:44:39  CSV File was updated with debris orbit status
+05-05-2025 15:50:00  Space Agent Representative User logged in
+05-05-2025 15:50:01  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:50:43  Space Agent Representative User logged out
+05-05-2025 15:50:44  Scientist User logged in
+05-05-2025 15:50:46  Scientist queried Rocket Body objects.
+05-05-2025 15:51:08  Scientist User logged out
+05-05-2025 15:51:13  Scientist User logged in
+05-05-2025 15:51:19  Scientist queried Debris objects.
+05-05-2025 15:51:24  Scientist User logged out
+05-05-2025 15:51:26  Scientist User logged in
+05-05-2025 15:51:29  Scientist queried Payload Body objects.
+05-05-2025 15:51:33  Scientist queried Unknown objects.
+05-05-2025 15:51:36  Scientist User logged out
+05-05-2025 15:51:39  Space Agent Representative User logged in
+05-05-2025 15:51:41  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 15:51:46  Space Agent Rep selected Generate Density Report
+05-05-2025 15:52:43  Space Agent Representative User logged out
+05-05-2025 15:52:44  CSV File was updated with debris orbit status
+05-05-2025 15:58:55  Space Agent Representative User logged in
+05-05-2025 15:58:56  Space Agent Rep selected Generate Density Report
+05-05-2025 15:59:06  Space Agent Representative User logged out
+05-05-2025 15:59:10  CSV File was updated with debris orbit status
+05-05-2025 15:59:53  Space Agent Representative User logged in
+05-05-2025 15:59:54  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 16:00:21  Space Agent Rep selected Generate Density Report
+05-05-2025 16:02:23  Space Agent Rep selected Generate Density Report
+05-05-2025 16:02:30  Space Agent Representative User logged out
+05-05-2025 16:02:31  CSV File was updated with debris orbit status
+05-05-2025 17:04:25  CSV File was updated with debris orbit status
+05-05-2025 17:05:45  Scientist User logged in
+05-05-2025 17:05:49  Scientist User logged out
+05-05-2025 17:05:53  Space Agent Representative User logged in
+05-05-2025 17:06:08  Space Agent Representative User logged out
+05-05-2025 17:06:10  Scientist User logged in
+05-05-2025 17:06:21  Scientist assessed orbit status of Debris
+05-05-2025 17:06:21  TXT file was created with inorbit and exited debris count
+05-05-2025 17:06:30  Scientist User logged out
+05-05-2025 17:06:31  Scientist User logged in
+05-05-2025 17:06:39  Scientist queried LEO Objects
+05-05-2025 17:06:43  Scientist assessed orbit status of Debris
+05-05-2025 17:06:43  TXT file was created with inorbit and exited debris count
+05-05-2025 17:06:46  Scientist User logged out
+05-05-2025 17:06:47  CSV File was updated with debris orbit status
+05-05-2025 17:17:52  Space Agent Representative User logged in
+05-05-2025 17:17:53  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 17:17:58  Space Agent Rep selected Generate Density Report
+05-05-2025 17:24:56  Space Agent Representative User logged out
+05-05-2025 17:24:56  CSV File was updated with debris orbit status
+05-05-2025 17:25:05  Space Agent Representative User logged in
+05-05-2025 17:25:09 Space Agent Rep selected Generate Density Report
+05-05-2025 17:25:26  Space Agent Representative User logged out
+05-05-2025 17:26:21  CSV File was updated with debris orbit status
+05-05-2025 17:33:31  Space Agent Representative User logged in
+05-05-2025 17:33:34  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 17:33:39 Space Agent Rep selected Generate Density Report
+05-05-2025 17:33:42  Space Agent Representative User logged out
+05-05-2025 17:33:45  CSV File was updated with debris orbit status
+05-05-2025 19:01:01  CSV File was updated with debris orbit status
+05-05-2025 19:02:54  Space Agent Representative User logged in
+05-05-2025 19:02:55  Space Agent Rep selected Analyze Long-Term Impact
+05-05-2025 19:02:56 Space Agent Rep selected Generate Density Report
+05-05-2025 19:03:02  Space Agent Representative User logged out
+05-05-2025 19:03:05  CSV File was updated with debris orbit status
