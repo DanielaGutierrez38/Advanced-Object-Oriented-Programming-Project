@@ -9,4 +9,14 @@ class SpaceAgentRep extends User{
     /**Default Constructor */
     SpaceAgentRep(){}
     
+    public SpaceAgentRep(String username, String hash, String salt) {
+        super(username, hash, salt);
+    }
+
+    /**Method that gets the user type (override) */
+    @Override
+    public String getUserType() {
+        return "SpaceAgentRep";
+    }
+
 }

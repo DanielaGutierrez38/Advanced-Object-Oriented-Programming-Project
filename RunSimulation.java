@@ -5,7 +5,13 @@
  * @autor Caitlin Gregory
  * @autor Daniela Gutierrez
  */
-class RunSimulation{
+class RunSimulation{ //implements DisplayMenu
+
+    private final Menu menu;
+
+    public RunSimulation(Menu menu) {
+        this.menu = menu;
+    }
 
     /**Main method of the program 
      * @param args main method thing
@@ -14,7 +20,8 @@ class RunSimulation{
 
         TrackingSystem trackingSystem = new TrackingSystem("rso_metrics_columns_jumbled.csv");  // Load the file
         MissionControl missionControl = new MissionControl(trackingSystem);     // Create MissionControl with TrackingSystem
-        DisplayMenu menu = new DisplayMenu(missionControl);                     // PASS MissionControl here
+        UserManager userManager = new UserManager("user_info.csv"); //create user manager 
+        Menu menu = new DisplayMenu(missionControl, userManager);                     // PASS MissionControl here
         menu.displayMainMenu();                                                 // Display the menu
     }
 }

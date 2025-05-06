@@ -1,3 +1,8 @@
+/**
+ * Class that performs all tracking, searching, and assessing functionality
+ * @author Caitlin Gregory
+ * @author Daniela Gutierrez
+ */
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -5,11 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * Class that performs all tracking, searching, and assessing functionality
- * @author Caitlin Gregory
- * @author Daniela Gutierrez
- */
 class MissionControl {
     /** Tracking System variable*/
     protected TrackingSystem trackingSystem; 
@@ -27,7 +27,6 @@ class MissionControl {
      * Search a space object based on its type
      * @param choice type of object that the user wants to query
      */
-
     // Accept 'choice' passed in from DisplayMenu
     public void trackObjectsInSpace(int choice) {
         Logger logger = Logger.getInstance(); // Log start of query
@@ -104,7 +103,7 @@ class MissionControl {
                 }else{
                     riskLevel = "Low Risk";
                 }
-            
+
                 obj.displayInfo();  
                 //display new info
                 System.out.println("Still In Orbit: " + stillInOrbit);
@@ -118,7 +117,6 @@ class MissionControl {
                 debris.setRiskLevel(riskLevel);
             }
         }
-
     }
 
     /**
@@ -220,7 +218,6 @@ class MissionControl {
             }
         }
     }
-
     /**
      * Space Agency Representative options:
      * Analyze long-term impact for LEO objects that are older than 200 days 
@@ -278,4 +275,4 @@ class MissionControl {
         System.out.println("Total objects in longitude range: " + count);
     }
 
-}
+} 
