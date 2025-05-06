@@ -11,19 +11,14 @@ import java.util.List;
 import java.util.Scanner;
 
 class MissionControl {
-
     /** Tracking System variable*/
     protected TrackingSystem trackingSystem; 
     /**Curent user variable */
-    private User currentUser; //unused for now
+    private User currentUser; //unused for now   
 
     /**
      * Mission control constructor that initializes a Tracking System object to read the csv file
      */
-    public MissionControl() {
-        this.trackingSystem = new TrackingSystem("rso_metrics.csv");
-    }
-
     public MissionControl(TrackingSystem trackingSystem) {
         this.trackingSystem = trackingSystem;
     }
@@ -34,21 +29,21 @@ class MissionControl {
      */
     // Accept 'choice' passed in from DisplayMenu
     public void trackObjectsInSpace(int choice) {
-        Logger logger = new Logger(); // Log start of query
+        Logger logger = Logger.getInstance(); // Log start of query
 
         // Log query type
         switch (choice) {
             case 1:
-                logger.log(" Scientist queried Rocket Body objects.");
+                Logger.getInstance().log( " Scientist queried Rocket Body objects.");
                 break;
             case 2:
-                logger.log(" Scientist queried Debris objects.");
+                Logger.getInstance().log( " Scientist queried Debris objects.");
                 break;
             case 3:
-                logger.log(" Scientist queried Payload Body objects.");
+                Logger.getInstance().log( " Scientist queried Payload Body objects.");
                 break;
             case 4:
-                logger.log(" Scientist queried Unknown objects.");
+                Logger.getInstance().log( " Scientist queried Unknown objects.");
                 break;
             default:
                 System.out.println("Invalid input");
@@ -214,7 +209,7 @@ class MissionControl {
     /**
      * Method that prints out all the objects with LEO orbit type
      */
-    public void trackObjectsInLEO() {
+    public void trackObjectsInLEO(){
 
         for (SpaceObject obj : trackingSystem.getAllObjects().values()) {
             if (obj.orbitType.equals("LEO")){
@@ -223,4 +218,61 @@ class MissionControl {
             }
         }
     }
+    /**
+     * Space Agency Representative options:
+     * Analyze long-term impact for LEO objects that are older than 200 days 
+     * and have had at least 1 conjunction.
+     */
+    public void analyzeLongTermImpact(){
+        boolean foundAny = false;
+        for (SpaceObject obj : trackingSystem.getAllObjects().values()){
+            // Check if the object is in LEO and meets the age + conjunction criteria
+            if ("LEO".equalsIgnoreCase(obj.orbitType) &&
+                obj.daysOld > 200 &&
+                obj.conjunctionCount > 0){
+                
+                foundAny = true;
+                System.out.println("Record ID: " + obj.recordId);
+                System.out.println("Satellite Name: " + obj.satelliteName);
+                System.out.println("Country: " + obj.country);
+                System.out.println("Orbit Type: " + obj.orbitType);
+                System.out.println("Object Type: " + obj.getClass().getSimpleName());
+                System.out.println("Days Old: " + obj.daysOld);
+                System.out.println("Conjunction Count: " + obj.conjunctionCount);
+                System.out.println("-------------------------------------");
+            }
+        }
+        if (!foundAny){
+            System.out.println("No LEO objects found with >200 days old and >0 conjunctions.");
+        }
+    }
+
+    /**
+     * Generate density report for all objects within a given longitude range.
+     * @param minLongitude lower bound of longitude
+     * @param maxLongitude upper bound of longitude
+     */
+    public void generateDensityReport(double minLongitude, double maxLongitude){
+        int count = 0;
+
+        // Loop through all objects and check if their longitude falls in the range
+        for (SpaceObject obj : trackingSystem.getAllObjects().values()) {
+            if (obj.longitude >= minLongitude && obj.longitude <= maxLongitude){
+                count++;  // increment count if match is found
+
+                // Print object details
+                System.out.println("Record ID: " + obj.recordId);
+                System.out.println("Satellite Name: " + obj.satelliteName);
+                System.out.println("Country: " + obj.country);
+                System.out.println("Orbit Type: " + obj.orbitType);
+                System.out.println("Launch Year: " + obj.launchYear);
+                System.out.println("Object Type: " + obj.getClass().getSimpleName());
+                System.out.println("-------------------------------------");
+            }
+        }
+
+        // Final count of matching objects
+        System.out.println("Total objects in longitude range: " + count);
+    }
+
 } 

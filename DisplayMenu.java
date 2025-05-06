@@ -9,16 +9,13 @@ import java.lang.*;
  * @author Daniela Gutierrez
  */
 public class DisplayMenu implements Menu{   
-// Interface that calls methods (separate class)
-//call interface in run simulation
-//pattern: singleton/factory (include in class diagram)
-//singleton for logger
+
     /**Default constructor */
     private MissionControl missionControl;
     private final UserManager userManager;
 
     /** Create a new Logger variable to log user interactions */
-    Logger newLogger = new Logger();
+    Logger logger = Logger.getInstance();
 
     /** Create a new MissionControl variable to call its methods to track, search and assess */
     public DisplayMenu(MissionControl missionControl, UserManager userManager) {
@@ -31,7 +28,6 @@ public class DisplayMenu implements Menu{
      */
     @Override
     public void displayMainMenu() {
-    
         int userSelection = 1;
         Scanner input = new Scanner(System.in);
 
@@ -76,12 +72,11 @@ public class DisplayMenu implements Menu{
                     if (authChoice == 1) {
                         boolean success = userManager.authenticateUser(username, password, userType);
                         if (success) {
-                            newLogger.log(" " + userType + " user '" + username + "' logged in");
-                            switch (userType) {
-                                case "Scientist" -> displayScientistMenu();
-                                case "SpaceAgentRep" -> displaySpaceAgentRepMenu();
-                                case "Administrator" -> displayAdministratorMenu();
-                            }
+                            Logger.getInstance().log(" " + userType + " user '" + username + "' logged in");
+                            User user = userManager.getUser(username);
+                            if (user instanceof Scientist) displayScientistMenu();
+                            else if (user instanceof SpaceAgentRep) displaySpaceAgentRepMenu();
+                            else if (user instanceof Administrator) displayAdministratorMenu();
                         } else {
                             System.out.println("Login failed. Please check your credentials.");
                         }
@@ -97,7 +92,7 @@ public class DisplayMenu implements Menu{
                     }
 
                 } else if (userSelection == 4) {
-                    newLogger.log(" CSV File was updated with debris orbit status");
+                    Logger.getInstance().log(" CSV File was updated with debris orbit status");
                     missionControl.exportToUpdatedCSV("updated_rso_metrics.csv");
                     System.out.println("Thank you for using the system! See you next time :)");
                     System.exit(0);
@@ -169,16 +164,16 @@ public class DisplayMenu implements Menu{
                                 case 1:
 
                                     //display list of all objects in the LEO and their info
-                                    newLogger.log(" Scientist queried LEO Objects");
+                                    Logger.getInstance().log(" Scientist queried LEO Objects");
                                     missionControl.trackObjectsInLEO();
                     
                                 break;
 
                                 case 2:
                                     //orbit assessment
-                                    newLogger.log(" Scientist assessed orbit status of Debris");
+                                    Logger.getInstance().log(" Scientist assessed orbit status of Debris");
                                     missionControl.assessDebrisStillInOrbit();
-                                    newLogger.log(" TXT file was created with inorbit and exited debris count");
+                                    Logger.getInstance().log(" TXT file was created with inorbit and exited debris count");
                                     missionControl.exportExitedDebrisReport("inorbit_exited_debris_report.txt");
                                 break;
 
@@ -195,8 +190,7 @@ public class DisplayMenu implements Menu{
                     break;
 
                     case 3:
-                        //Logger newLogger = new Logger();
-                        newLogger.log(" Scientist User logged out");
+                        Logger.getInstance().log(" Scientist User logged out");
                         displayMainMenu(); // Go back to main menu
                         break;
 
@@ -214,54 +208,74 @@ public class DisplayMenu implements Menu{
     }
 
     /**
-    * Method that displays the Space Agent Representative menu once the user has logged in as this user
-    */
-    @Override
+     * Method that displays the Space Agent Representative menu once the user has logged in as this user
+     */
     public void displaySpaceAgentRepMenu(){
 
         Scanner inputSAR = new Scanner(System.in);
-        int userSelectionSAR = 1;
+        int userSelectionSAR = -1;
 
         do {
+
             System.out.println("...............User: Space Agency Representative...............");
             System.out.println("Please select the number for the action that you want to perform");
             System.out.println("1-. Analyze long-term Impact");
             System.out.println("2-. Generate Density Reports");
             System.out.println("3-. Back");
 
-            try{
+            try {
+                userSelectionSAR = inputSAR.nextInt();  // Get input
 
-                userSelectionSAR = inputSAR.nextInt();
-
-                switch(userSelectionSAR){
-
+                switch (userSelectionSAR){
                     case 1:
-                        //analyze long term impact 
-                    break;
+                        // Call the method to analyze long-term impact
+                        Logger.getInstance().log(" Space Agent Rep selected Analyze Long-Term Impact");
+                        missionControl.analyzeLongTermImpact();
+                        break;
 
                     case 2:
-                        //generate density reports
-                    break;
-                
+                        // Prompt and call density report
+                        Logger.getInstance().log("Space Agent Rep selected Generate Density Report");
+
+                        while (true) {
+                            try {
+                                System.out.print("Enter minimum longitude: ");
+                                double minLong = inputSAR.nextDouble();
+
+                                System.out.print("Enter maximum longitude: ");
+                                double maxLong = inputSAR.nextDouble();
+
+                                missionControl.generateDensityReport(minLong, maxLong);
+                                break; // exit loop after successful input and report generation
+
+                            } catch (InputMismatchException e) {
+                                System.out.println("[ERROR] Invalid input. Please enter numeric values for longitude.");
+                                inputSAR.nextLine(); // clear invalid input from scanner
+
+                            } catch (Exception e) {
+                                System.out.println("[ERROR] An unexpected error occurred: " + e.getMessage());
+                                break; // break to avoid infinite loop
+                            }
+                        }
                     case 3:
-                        //inputSAR.close();
-                        newLogger.log(" Space Agent Representative User logged out");
-                        displayMainMenu();
-                    break;
+                        Logger.getInstance().log(" Space Agent Representative User logged out");
+                        displayMainMenu();  // Return to main menu
+                        break;
 
                     default:
-                        System.out.println("Invalid input. Please enter a number between 1 and 3");
-                    break;
-                
-                } //end of switch
+                        System.out.println("Invalid input. Please enter a number between 1 and 3.");
+                }
 
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a number between 1 and 3.");
-                inputSAR.next();
+            } catch (InputMismatchException e){
+                System.out.println("Invalid input. Please enter a valid number.");
+                inputSAR.next();  // Clear bad input
             }
 
-        }while(userSelectionSAR != 3);
-
+        }while (userSelectionSAR != 3);
+            // Re-display the SAR menu until they choose to go back
+            //if (userSelectionSAR != 3){
+              //  displaySpaceAgentRepMenu();
+            //}
     }
 
     /**
@@ -307,6 +321,7 @@ public class DisplayMenu implements Menu{
                         System.out.print("Enter user type (Scientist / SpaceAgentRep / Administrator): ");
                         String newType = inputAdmin.nextLine();
                         admin.createUser(newUsername, newPassword, newType);
+                        Logger.getInstance().log("New user" + newUsername + "was created");
                         break;
     
                     case 2: //manage (update) an existing user's username/password
@@ -326,11 +341,13 @@ public class DisplayMenu implements Menu{
                         if (updateChoice == 1 || updateChoice == 3) {
                             System.out.print("Enter new username: ");
                             updatedUsername = inputAdmin.nextLine();
+                            Logger.getInstance().log(oldUsername + " changed their username to " + updatedUsername);
                         }
     
                         if (updateChoice == 2 || updateChoice == 3) {
                             System.out.print("Enter new password: ");
                             updatedPassword = inputAdmin.nextLine();
+                            Logger.getInstance().log(oldUsername + "updated their password");
                         }
     
                         admin.updateUserFlexible(oldUsername, updatedUsername, updatedPassword);
@@ -340,10 +357,11 @@ public class DisplayMenu implements Menu{
                         System.out.print("Enter username to delete: ");
                         String deleteUsername = inputAdmin.nextLine();
                         admin.deleteUser(deleteUsername);
+                        Logger.getInstance().log("User " + deleteUsername + " deleted");
                         break;
     
                     case 4: //go back
-                        newLogger.log(" Administrator User logged out");
+                        Logger.getInstance().log(" Administrator User logged out");
                         return;
     
                     default:

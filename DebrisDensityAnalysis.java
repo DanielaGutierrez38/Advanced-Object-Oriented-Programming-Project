@@ -4,13 +4,7 @@ import java.util.List;
  * @author Caitlin Gregory
  * @author Daniela Gutierrez
  */
-class DebrisDensityAnalysis extends MissionControl {
-
-    /** Constructor that accepts a TrackingSystem */
-    DebrisDensityAnalysis(TrackingSystem trackingSystem) {
-        super(trackingSystem); // Pass the tracking system to the parent class
-    }
-
+class DebrisDensityAnalysis{
     /**
      * Method that will generate the density report 
      * @param objectList list of SpaceObjects

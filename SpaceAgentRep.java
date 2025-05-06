@@ -8,7 +8,7 @@ class SpaceAgentRep extends User{
 
     /**Default Constructor */
     SpaceAgentRep(){}
-
+    
     public SpaceAgentRep(String username, String hash, String salt) {
         super(username, hash, salt);
     }
