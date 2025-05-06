@@ -13,6 +13,17 @@ class Scientist extends User{
     /**Default constructor */
     Scientist(){}
 
+    /**Constructor to initialize Scientist user  with username, hash and salt*/
+    public Scientist(String username, String hash, String salt) {
+        super(username, hash, salt);
+    }
+
+    /**Method that gets the user type (override) */
+    @Override
+    public String getUserType() {
+        return "Scientist";
+    }
+
 }
 
 

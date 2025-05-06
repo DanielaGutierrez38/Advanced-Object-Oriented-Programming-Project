@@ -141,3 +141,47 @@
 28-04-2025 22:08:01 Scientist queried Unknown objects.
 28-04-2025 22:08:45 Scientist User logged out
 28-04-2025 22:08:47 CSV File was updated with debris orbit status
+06-05-2025 05:53:18 Scientist user 'dagutierrez17' logged in
+06-05-2025 05:56:50 Scientist User logged out
+06-05-2025 05:59:28 Administrator user 'azul123' logged in
+06-05-2025 05:59:34 Administrator User logged out
+06-05-2025 06:02:59 Scientist user 'danielagutierrez' logged in
+06-05-2025 06:09:42 Scientist User logged out
+06-05-2025 06:10:56 Administrator user 'lily34' logged in
+06-05-2025 06:10:58 Administrator User logged out
+06-05-2025 06:11:00 CSV File was updated with debris orbit status
+06-05-2025 07:36:39 SpaceAgentRep user 'irma123' logged in
+06-05-2025 07:36:42 Space Agent Representative User logged out
+06-05-2025 07:37:35 Administrator user 'lily34' logged in
+06-05-2025 07:39:54 Administrator User logged out
+06-05-2025 07:39:55 CSV File was updated with debris orbit status
+06-05-2025 08:23:28 Scientist user 'danielagutierrez' logged in
+06-05-2025 08:23:30 Scientist User logged out
+06-05-2025 08:24:41 SpaceAgentRep user 'denise123' logged in
+06-05-2025 08:24:43 Space Agent Representative User logged out
+06-05-2025 08:25:29 Administrator user 'erik789' logged in
+06-05-2025 08:31:32 Administrator User logged out
+06-05-2025 08:31:34 CSV File was updated with debris orbit status
+06-05-2025 08:38:49 Scientist user 'dagutierrez17' logged in
+06-05-2025 08:38:53 Scientist User logged out
+06-05-2025 08:38:54 CSV File was updated with debris orbit status
+06-05-2025 08:39:08 Scientist user 'dagutierrez17' logged in
+06-05-2025 08:39:13 Scientist User logged out
+06-05-2025 08:39:28 SpaceAgentRep user 'denise123' logged in
+06-05-2025 08:41:04 Space Agent Representative User logged out
+06-05-2025 08:41:16 Administrator user '646gustava' logged in
+06-05-2025 08:41:18 Administrator User logged out
+06-05-2025 08:41:19 CSV File was updated with debris orbit status
+06-05-2025 09:22:07 Scientist user 'dagutierrez17' logged in
+06-05-2025 09:22:12 Scientist queried Rocket Body objects.
+06-05-2025 09:22:17 Scientist queried Debris objects.
+06-05-2025 09:22:21 Scientist queried Payload Body objects.
+06-05-2025 09:22:24 Scientist queried Unknown objects.
+06-05-2025 09:22:28 Scientist queried LEO Objects
+06-05-2025 09:22:31 Scientist assessed orbit status of Debris
+06-05-2025 09:22:31 TXT file was created with inorbit and exited debris count
+06-05-2025 09:22:34 Scientist User logged out
+06-05-2025 09:22:35 CSV File was updated with debris orbit status
+06-05-2025 09:35:20 Scientist user 'dagutierrez17' logged in
+06-05-2025 09:36:03 Scientist User logged out
+06-05-2025 09:36:04 CSV File was updated with debris orbit status

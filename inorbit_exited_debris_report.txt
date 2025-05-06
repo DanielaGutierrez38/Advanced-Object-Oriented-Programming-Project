@@ -1,54 +1,16 @@
 Debris Orbit Assessment Report
-In-Orbit Count: 0
-Exited Count: 49
+In-Orbit Count: 38
+Exited Count: 11
 
 Exited Debris List:
-Record ID: 10436 | Name: COSMOS 839 DEB | Country: CIS | Orbit: LEO | Year: 1976 | Site: PKMTR | Long: 29.40 | AvgLong: -32.93 | Geohash: "62.925556, 40.577778" | Days Old: 17741
-Record ID: 12529 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Year: 1976 | Site: AFWTR | Long: -49.98 | AvgLong: 63.25 | Geohash: "34.742221, -120.57243" | Days Old: 17720
-Record ID: 21249 | Name: SL-8 DEB | Country: CIS | Orbit: LEO | Year: 1991 | Site: PKMTR | Long: -162.53 | AvgLong: -98.07 | Geohash: "62.925556, 40.577778" | Days Old: 12409
-Record ID: 26005 | Name: SL-14 DEB | Country: CIS | Orbit: LEO | Year: 1991 | Site: PKMTR | Long: 9.34 | AvgLong: 22.61 | Geohash: "62.925556, 40.577778" | Days Old: 12181
-Record ID: 29210 | Name: SCOUT G-1 DEB | Country: US | Orbit: LEO | Year: 1987 | Site: AFWTR | Long: 0.00 | AvgLong: 0.00 | Geohash: "34.742221, -120.57243" | Days Old: 13654
-Record ID: 29539 | Name: CZ-4B DEB | Country: PRC | Orbit: LEO | Year: 2006 | Site: TSC | Long: 26.25 | AvgLong: 127.11 | Geohash: "38.849086, 111.608497" | Days Old: 6857
-Record ID: 31518 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: 0.00 | AvgLong: 0.00 | Geohash: "38.849086, 111.608497" | Days Old: 9400
-Record ID: 32558 | Name: DELTA 4H DEB | Country: US | Orbit: Unknown Orbit Category | Year: 2007 | Site: AFETR | Long: 0.00 | AvgLong: 0.00 | Geohash: "28.4917337, -80.5825555" | Days Old: 6293
-Record ID: 35350 | Name: PSLV DEB | Country: IND | Orbit: LEO | Year: 2001 | Site: SRI | Long: -19.90 | AvgLong: 94.22 | Geohash: "13.7178, 80.2" | Days Old: 8504
-Record ID: 35670 | Name: COSMOS 2251 DEB | Country: CIS | Orbit: LEO | Year: 1993 | Site: PKMTR | Long: 40.00 | AvgLong: 50.95 | Geohash: "62.925556, 40.577778" | Days Old: 11554
-Record ID: 39350 | Name: CZ-3C DEB | Country: PRC | Orbit: HEO | Year: 2010 | Site: XSC | Long: -133.58 | AvgLong: -101.91 | Geohash: "28.246017, 102.026556" | Days Old: 5208
-Record ID: 39645 | Name: COSMOS 1867 COOLANT | Country: CIS | Orbit: LEO | Year: 1987 | Site: TTMTR | Long: 142.55 | AvgLong: 26.19 | Geohash: "45.965, 63.305" | Days Old: 13722
-Record ID: 46525 | Name: FREGAT DEB | Country: CIS | Orbit: LEO | Year: 2011 | Site: TTMTR | Long: 0.00 | AvgLong: 0.00 | Geohash: "45.965, 63.305" | Days Old: 4948
-Record ID: 4821 | Name: THORAD AGENA D DEB | Country: US | Orbit: LEO | Year: 1970 | Site: AFWTR | Long: 178.21 | AvgLong: -72.05 | Geohash: "34.742221, -120.57243" | Days Old: 20024
-Record ID: 50802 | Name: COSMOS 2499 DEB | Country: CIS | Orbit: LEO | Year: 2014 | Site: PKMTR | Long: 0.00 | AvgLong: 84.38 | Geohash: "62.925556, 40.577778" | Days Old: 3908
-Record ID: 61354 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Year: 2024 | Site: TSC | Long: 0.00 | AvgLong: 32.23 | Geohash: "38.849086, 111.608497" | Days Old: 180
-Record ID: 61819 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Year: 2024 | Site: TSC | Long: 0.00 | AvgLong: 22.60 | Geohash: "38.849086, 111.608497" | Days Old: 180
-Record ID: 12542 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Year: 1976 | Site: AFWTR | Long: -32.49 | AvgLong: 127.19 | Geohash: "34.742221, -120.57243" | Days Old: 17720
-Record ID: 21453 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Year: 1975 | Site: AFWTR | Long: 136.69 | AvgLong: -145.41 | Geohash: "34.742221, -120.57243" | Days Old: 18133
-Record ID: 23479 | Name: SL-19 DEB | Country: CIS | Orbit: LEO | Year: 1994 | Site: TTMTR | Long: 164.32 | AvgLong: 35.19 | Geohash: "45.965, 63.305" | Days Old: 10996
-Record ID: 26222 | Name: CZ-4 DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: -158.55 | AvgLong: -177.56 | Geohash: "38.849086, 111.608497" | Days Old: 9243
-Record ID: 27729 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Year: 1977 | Site: AFETR | Long: 156.61 | AvgLong: -46.53 | Geohash: "28.4917337, -80.5825555" | Days Old: 17370
-Record ID: 28039 | Name: ARIANE 44L DEB | Country: FR | Orbit: HEO | Year: 1991 | Site: FRGUI | Long: -109.61 | AvgLong: 33.17 | Geohash: "5.222222, -52.773611" | Days Old: 12437
-Record ID: 30750 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: -131.09 | AvgLong: 149.02 | Geohash: "38.849086, 111.608497" | Days Old: 9400
-Record ID: 38296 | Name: CZ-4C DEB | Country: PRC | Orbit: LEO | Year: 2010 | Site: TSC | Long: -91.66 | AvgLong: -30.68 | Geohash: "38.849086, 111.608497" | Days Old: 5204
-Record ID: 38576 | Name: BREEZE-M DEB | Country: CIS | Orbit: HEO | Year: 2008 | Site: TTMTR | Long: -26.56 | AvgLong: -78.82 | Geohash: "45.965, 63.305" | Days Old: 6169
-Record ID: 39840 | Name: SL-8 DEB | Country: CIS | Orbit: LEO | Year: 1991 | Site: PKMTR | Long: -170.95 | AvgLong: -112.61 | Geohash: "62.925556, 40.577778" | Days Old: 12409
-Record ID: 41009 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: 0.00 | AvgLong: 0.00 | Geohash: "38.849086, 111.608497" | Days Old: 9400
-Record ID: 41262 | Name: NOAA 16 DEB | Country: US | Orbit: LEO | Year: 2000 | Site: AFWTR | Long: -19.50 | AvgLong: -11.57 | Geohash: "34.742221, -120.57243" | Days Old: 8900
-Record ID: 41280 | Name: NOAA 16 DEB | Country: US | Orbit: LEO | Year: 2000 | Site: AFWTR | Long: 65.61 | AvgLong: 132.85 | Geohash: "34.742221, -120.57243" | Days Old: 8900
-Record ID: 52828 | Name: ATLAS 5 CENTAUR DEB | Country: US | Orbit: HEO | Year: 2014 | Site: AFETR | Long: -17.66 | AvgLong: 1.31 | Geohash: "28.4917337, -80.5825555" | Days Old: 3791
-Record ID: 55520 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Year: 2022 | Site: TSC | Long: -18.74 | AvgLong: 115.25 | Geohash: "38.849086, 111.608497" | Days Old: 814
-Record ID: 55551 | Name: CZ-6A DEB | Country: PRC | Orbit: LEO | Year: 2022 | Site: TSC | Long: -1.73 | AvgLong: 120.21 | Geohash: "38.849086, 111.608497" | Days Old: 814
-Record ID: 10730 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Year: 1975 | Site: AFWTR | Long: -27.86 | AvgLong: -80.30 | Geohash: "34.742221, -120.57243" | Days Old: 18197
-Record ID: 13460 | Name: COSMOS 1275 DEB | Country: CIS | Orbit: LEO | Year: 1981 | Site: PKMTR | Long: 164.02 | AvgLong: -50.78 | Geohash: "62.925556, 40.577778" | Days Old: 15949
-Record ID: 20626 | Name: SL-16 DEB | Country: CIS | Orbit: LEO | Year: 1990 | Site: TTMTR | Long: 73.32 | AvgLong: -41.97 | Geohash: "45.965, 63.305" | Days Old: 12675
-Record ID: 2700 | Name: DELTA 1 DEB | Country: US | Orbit: LEO | Year: 1965 | Site: AFETR | Long: 69.42 | AvgLong: 102.43 | Geohash: "28.4917337, -80.5825555" | Days Old: 21638
-Record ID: 29301 | Name: METEOR 2-17 DEB | Country: CIS | Orbit: LEO | Year: 1988 | Site: PKMTR | Long: -141.58 | AvgLong: 53.89 | Geohash: "62.925556, 40.577778" | Days Old: 13518
-Record ID: 29922 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: -21.85 | AvgLong: -42.29 | Geohash: "38.849086, 111.608497" | Days Old: 9400
-Record ID: 30005 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: 132.55 | AvgLong: -71.53 | Geohash: "38.849086, 111.608497" | Days Old: 9400
-Record ID: 30155 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: -137.89 | AvgLong: 31.22 | Geohash: "38.849086, 111.608497" | Days Old: 9400
-Record ID: 32119 | Name: FENGYUN 1C DEB | Country: PRC | Orbit: LEO | Year: 1999 | Site: TSC | Long: 156.15 | AvgLong: -76.54 | Geohash: "38.849086, 111.608497" | Days Old: 9400
-Record ID: 33558 | Name: ARIANE 2 DEB | Country: FR | Orbit: HEO | Year: 1989 | Site: FRGUI | Long: -166.74 | AvgLong: 133.02 | Geohash: "5.222222, -52.773611" | Days Old: 13155
-Record ID: 33776 | Name: IRIDIUM 33 DEB | Country: US | Orbit: LEO | Year: 1997 | Site: TTMTR | Long: -161.53 | AvgLong: -162.01 | Geohash: "45.965, 63.305" | Days Old: 10003
-Record ID: 35796 | Name: COSMOS 2251 DEB | Country: CIS | Orbit: LEO | Year: 1993 | Site: PKMTR | Long: 130.75 | AvgLong: 0.00 | Geohash: "62.925556, 40.577778" | Days Old: 11554
-Record ID: 40862 | Name: CZ-3C DEB | Country: PRC | Orbit: HEO | Year: 2012 | Site: XSC | Long: 0.00 | AvgLong: 0.00 | Geohash: "28.246017, 102.026556" | Days Old: 4727
-Record ID: 48539 | Name: SL-12 DEB | Country: CIS | Orbit: HEO | Year: 2008 | Site: TTMTR | Long: 0.00 | AvgLong: 0.00 | Geohash: "45.965, 63.305" | Days Old: 5974
-Record ID: 52967 | Name: ATLAS 5 CENTAUR DEB | Country: US | Orbit: HEO | Year: 2018 | Site: AFETR | Long: 0.00 | AvgLong: 0.00 | Geohash: "28.4917337, -80.5825555" | Days Old: 2300
-Record ID: 53093 | Name: COSMOS 2251 DEB | Country: CIS | Orbit: LEO | Year: 1993 | Site: PKMTR | Long: -1.03 | AvgLong: 145.83 | Geohash: "62.925556, 40.577778" | Days Old: 11554
+Record ID: 29210 | Name: SCOUT G-1 DEB | Country: unknown | Orbit: LEO | Year: 1987 | Site: AFWTR | Long: 0.00 | AvgLong: 0.00 | Geohash: "34.742221 | Days Old: 0
+Record ID: 31518 | Name: FENGYUN 1C DEB | Country: unknown | Orbit: LEO | Year: 1999 | Site: TSC | Long: 0.00 | AvgLong: 0.00 | Geohash: "38.849086 | Days Old: 0
+Record ID: 32558 | Name: DELTA 4H DEB | Country: unknown | Orbit: Unknown Orbit Category | Year: 2007 | Site: AFETR | Long: 0.00 | AvgLong: 0.00 | Geohash: "28.4917337 | Days Old: 0
+Record ID: 46525 | Name: FREGAT DEB | Country: unknown | Orbit: LEO | Year: 2011 | Site: TTMTR | Long: 0.00 | AvgLong: 0.00 | Geohash: "45.965 | Days Old: 0
+Record ID: 50802 | Name: COSMOS 2499 DEB | Country: unknown | Orbit: LEO | Year: 2014 | Site: PKMTR | Long: 0.00 | AvgLong: 84.38 | Geohash: "62.925556 | Days Old: 0
+Record ID: 61354 | Name: CZ-6A DEB | Country: unknown | Orbit: LEO | Year: 2024 | Site: TSC | Long: 0.00 | AvgLong: 32.23 | Geohash: "38.849086 | Days Old: 0
+Record ID: 61819 | Name: CZ-6A DEB | Country: unknown | Orbit: LEO | Year: 2024 | Site: TSC | Long: 0.00 | AvgLong: 22.60 | Geohash: "38.849086 | Days Old: 0
+Record ID: 41009 | Name: FENGYUN 1C DEB | Country: unknown | Orbit: LEO | Year: 1999 | Site: TSC | Long: 0.00 | AvgLong: 0.00 | Geohash: "38.849086 | Days Old: 0
+Record ID: 40862 | Name: CZ-3C DEB | Country: unknown | Orbit: HEO | Year: 2012 | Site: XSC | Long: 0.00 | AvgLong: 0.00 | Geohash: "28.246017 | Days Old: 0
+Record ID: 48539 | Name: SL-12 DEB | Country: unknown | Orbit: HEO | Year: 2008 | Site: TTMTR | Long: 0.00 | AvgLong: 0.00 | Geohash: "45.965 | Days Old: 0
+Record ID: 52967 | Name: ATLAS 5 CENTAUR DEB | Country: unknown | Orbit: HEO | Year: 2018 | Site: AFETR | Long: 0.00 | AvgLong: 0.00 | Geohash: "28.4917337 | Days Old: 0
