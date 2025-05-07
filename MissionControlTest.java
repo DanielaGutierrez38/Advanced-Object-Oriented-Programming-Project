@@ -101,4 +101,30 @@ class MissionControlTest {
         assertTrue(output.contains("Record ID: 123"), "Should include object in range");
         assertFalse(output.contains("Record ID: 124"), "Should not include object out of range");
     }
+    /**
+     * Tests that the `trackObjectsInLEO()` method only prints objects 
+     * that have "LEO" as their orbit type.
+     * 
+     * This method sets up one qualifying (LEO) object and one non-LEO object.
+     * It then verifies that only the LEO object appears in the output.
+     */
+    @Test
+    void testTrackObjectsInLEO() {
+        this.outContent.reset();
+
+        // Add one LEO and one non-LEO object
+        this.trackingSystem.getAllObjects().put("leo1", new Debris("2001", "LEO-Obj1", "US", "LEO", 2020, "KSC",
+                10.0, 9.0, "g1", "HRR", false, false, false, 100, 2));
+        this.trackingSystem.getAllObjects().put("geo1", new Debris("2002", "GEO-Obj1", "US", "GEO", 2020, "KSC",
+                10.0, 9.0, "g2", "HRR", false, false, false, 100, 2));
+
+        // Invoke the method
+        this.missionControl.trackObjectsInLEO();
+
+        // Capture and test output
+        String output = this.outContent.toString();
+
+        Assertions.assertTrue(output.contains("LEO-Obj1"), "Should display LEO object");
+        Assertions.assertFalse(output.contains("GEO-Obj1"), "Should not display non-LEO object");
+    }
 }
