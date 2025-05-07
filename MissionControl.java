@@ -171,7 +171,7 @@ class MissionControl {
      * about them
      * @param txtPath file to write on
     */
-    public void exportExitedDebrisReport(String txtPath) {
+    public void exportExitedDebrisReport(String txtPath){
         int inOrbitCount = 0;
         int exitedCount = 0;
         List<Debris> exitedDebris = new ArrayList<>();
@@ -220,59 +220,31 @@ class MissionControl {
     }
     /**
      * Space Agency Representative options:
-     * Analyze long-term impact for LEO objects that are older than 200 days 
-     * and have had at least 1 conjunction.
+     * Delegates the long-term impact analysis to the ImpactAnalysis class.
+     * Filters LEO space objects that are older than 200 days and have at least 1 conjunction.
      */
     public void analyzeLongTermImpact(){
-        boolean foundAny = false;
-        for (SpaceObject obj : trackingSystem.getAllObjects().values()){
-            // Check if the object is in LEO and meets the age + conjunction criteria
-            if ("LEO".equalsIgnoreCase(obj.orbitType) &&
-                obj.daysOld > 200 &&
-                obj.conjunctionCount > 0){
-                
-                foundAny = true;
-                System.out.println("Record ID: " + obj.recordId);
-                System.out.println("Satellite Name: " + obj.satelliteName);
-                System.out.println("Country: " + obj.country);
-                System.out.println("Orbit Type: " + obj.orbitType);
-                System.out.println("Object Type: " + obj.getClass().getSimpleName());
-                System.out.println("Days Old: " + obj.daysOld);
-                System.out.println("Conjunction Count: " + obj.conjunctionCount);
-                System.out.println("-------------------------------------");
-            }
-        }
-        if (!foundAny){
-            System.out.println("No LEO objects found with >200 days old and >0 conjunctions.");
-        }
+        List<SpaceObject> objectList = new ArrayList<>(trackingSystem.getAllObjects().values());
+        ImpactAnalysis analysis = new ImpactAnalysis();
+        analysis.analyzeLongTermImpact(objectList);
     }
+    
 
     /**
-     * Generate density report for all objects within a given longitude range.
-     * @param minLongitude lower bound of longitude
-     * @param maxLongitude upper bound of longitude
+     * Delegates the density report generation to DebrisDensityAnalysis.
+     * Filters all space objects in the specified longitude range.
+     * 
+     * @param minLongitude Minimum longitude value
+     * @param maxLongitude Maximum longitude value
      */
-    public void generateDensityReport(double minLongitude, double maxLongitude){
-        int count = 0;
-
-        // Loop through all objects and check if their longitude falls in the range
-        for (SpaceObject obj : trackingSystem.getAllObjects().values()) {
-            if (obj.longitude >= minLongitude && obj.longitude <= maxLongitude){
-                count++;  // increment count if match is found
-
-                // Print object details
-                System.out.println("Record ID: " + obj.recordId);
-                System.out.println("Satellite Name: " + obj.satelliteName);
-                System.out.println("Country: " + obj.country);
-                System.out.println("Orbit Type: " + obj.orbitType);
-                System.out.println("Launch Year: " + obj.launchYear);
-                System.out.println("Object Type: " + obj.getClass().getSimpleName());
-                System.out.println("-------------------------------------");
-            }
+    public void generateDensityReport(double minLongitude, double maxLongitude) {
+        List<SpaceObject> objectList = new ArrayList<>(trackingSystem.getAllObjects().values());
+        DebrisDensityAnalysis analysis = new DebrisDensityAnalysis();
+    
+        try {
+            analysis.generateDensityReport(objectList, minLongitude, maxLongitude);
+        } catch (DensityReportException e) {
+            System.out.println("[ERROR] " + e.getMessage());
         }
-
-        // Final count of matching objects
-        System.out.println("Total objects in longitude range: " + count);
-    }
-
+    }    
 } 

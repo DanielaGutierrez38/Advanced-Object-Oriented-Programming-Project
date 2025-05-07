@@ -8,12 +8,11 @@ import java.util.*;
  * @author Daniela Gutierrez
  */
 public class DictionaryBuilder {
-
     /**
      * Converts CSV lines into a dictionary of SpaceObjects.
      * 
-     * @param data         the raw CSV lines (excluding the header)
-     * @param columnIndex  the map of header column names to their indices
+     * @param data the raw CSV lines (excluding the header)
+     * @param columnIndex ßthe map of header column names to their indices
      * @return a map of SpaceObjects indexed by record ID
      */
     public static Map<String, SpaceObject> toArrayAndForward(String[][] data, Map<String, Integer> columnIndex) {

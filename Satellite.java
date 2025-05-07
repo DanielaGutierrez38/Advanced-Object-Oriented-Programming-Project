@@ -9,7 +9,7 @@
  * @author Daniela Gutierrez
  */
 
-public class Satellite extends SpaceObject {
+public class Satellite extends SpaceObject{
 
     /**
      * Constructs a Satellite object with the provided attributes.
@@ -33,14 +33,14 @@ public class Satellite extends SpaceObject {
     public Satellite(String recordId, String satelliteName, String country, String orbitType,
                  int launchYear, String launchSite, double longitude, double avgLongitude,
                  String geohash, String hrrCategory, boolean isNominated,
-                 boolean hasDossier, boolean isUnknownObject, int daysOld, int conjunctionCount) {
+                 boolean hasDossier, boolean isUnknownObject, int daysOld, int conjunctionCount){
         super(recordId, satelliteName, country, orbitType, launchYear, launchSite,
             longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
     }
 
     /**Method to display satellite's info */
     @Override
-    public void displayInfo() {
+    public void displayInfo(){
       System.out.println("Record ID: " + recordId);
       System.out.println("Satellite Name: " + satelliteName);
       System.out.println("Country: " + country);
