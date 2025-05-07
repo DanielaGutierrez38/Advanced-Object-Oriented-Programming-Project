@@ -1,6 +1,13 @@
 import java.util.List;
 
+/**
+ * Implement long term impact analysis functionality from space agency rep
+ * @author Caitlin Gregory
+ */
 public class ImpactAnalysis{
+
+    /**Default constructor */
+    ImpactAnalysis(){}
 
     /**
      * Analyze long-term impact for LEO objects that are older than 200 days 

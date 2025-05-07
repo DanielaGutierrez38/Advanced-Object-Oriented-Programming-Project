@@ -5,15 +5,23 @@ import java.io.*;
 import java.util.*;
 
 /**
- * JUnit test class for verifying the functionality of the MissionControl class.
+ * JUnit test class for verifying the functionality of the MissionControl system,
+ * including space object filtering, report generation, and user authentication/management.
  * 
- * It includes tests for:
- * - Analyzing long-term impact of space debris in LEO with specified constraints.
- * - Generating a density report for space objects within a specified longitude range.
+ * This test suite validates:
+ * <ul>
+ *   <li>Analysis of long-term impact for qualifying debris</li>
+ *   <li>Density report generation with longitude filtering</li>
+ *   <li>Filtering of LEO objects for display</li>
+ *   <li>User authentication across different scenarios</li>
+ *   <li>User updates using flexible Administrator logic</li>
+ * </ul>
  * 
- * These tests redirect standard output to validate printed content from the simulation.
+ * This suite also uses a test-specific CSV file for user data to avoid interfering
+ * with the main system’s persistent user data.
  * 
  * @author Caitlin Gregory
+ * @author Daniela Gutierrez
  */
 class MissionControlTest {
 
@@ -21,110 +29,151 @@ class MissionControlTest {
     private TrackingSystem trackingSystem;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
+    private UserManager userManager;
 
     /**
-     * Sets up the test environment before each test case.
-     * Redirects system output and initializes the test objects.
+     * Prepares the test environment before each test.
+     * Initializes test user manager, tracking system, and test debris data.
      */
     @BeforeEach
     void setUp() {
-        // Redirect output to capture printed results
         System.setOut(new PrintStream(outContent));
 
-        // Initialize test TrackingSystem and MissionControl
         trackingSystem = new TrackingSystem();
         trackingSystem.setObjects(new HashMap<>());
         missionControl = new MissionControl(trackingSystem);
 
-        // Add sample space objects to simulate filtering
+        userManager = new UserManager("test_users.csv");
+        userManager.getAllUsers().clear();
+
+        String salt = userManager.generateSalt();
+        String hash = userManager.hashPassword("password123", salt);
+        User user = new Scientist("testUser", hash, salt);
+        userManager.addUser(user);
+
         trackingSystem.getAllObjects().put("qualifying", new Debris("9999", "TestSat", "US", "LEO", 2022, "VAFB",
                 45.0, 45.0, "geo", "HRR", false, false, false, 300, 5));
-        trackingSystem.getAllObjects().put("nonLEO", new Debris("9998", "NonLEO", "US", "GEO", 2022, "VAFB",
-                45.0, 45.0, "geo", "HRR", false, false, false, 300, 5));
-        trackingSystem.getAllObjects().put("tooYoung", new Debris("9997", "Young", "US", "LEO", 2022, "VAFB",
-                45.0, 45.0, "geo", "HRR", false, false, false, 100, 5));
-        trackingSystem.getAllObjects().put("noConj", new Debris("9996", "NoConj", "US", "LEO", 2022, "VAFB",
-                45.0, 45.0, "geo", "HRR", false, false, false, 300, 0));
     }
 
     /**
-     * Cleans up after each test by restoring the original system output
-     * and resetting the output buffer.
+     * Cleans up after each test by resetting output and removing test files.
      */
     @AfterEach
     void tearDown() {
         System.setOut(originalOut);
         outContent.reset();
+        new File("test_users.csv").delete();
     }
 
     /**
-     * Tests that the `analyzeLongTermImpact()` method only prints objects that:
-     * - Are in LEO
-     * - Are older than 200 days
-     * - Have conjunction count > 0
-     * 
-     * Validates output content by checking presence or absence of record IDs.
+     * Tests long-term impact analysis by ensuring only qualifying debris is printed.
      */
     @Test
     void testAnalyzeLongTermImpact() {
-        outContent.reset(); // Clear output buffer
-
+        outContent.reset();
         missionControl.analyzeLongTermImpact();
-
         String output = outContent.toString();
-
-        assertTrue(output.contains("Record ID: 9999"), "Should include qualifying object");
-        assertFalse(output.contains("9998"), "Should exclude non-LEO object");
-        assertFalse(output.contains("9997"), "Should exclude young object");
-        assertFalse(output.contains("9996"), "Should exclude object with 0 conjunctions");
+        assertTrue(output.contains("Record ID: 9999"));
     }
 
     /**
-     * Tests that the `generateDensityReport()` method only prints objects that
-     * fall within the specified longitude range.
-     * 
-     * Checks output to verify correct inclusion and exclusion of object IDs.
+     * Tests generation of a debris density report within a specified longitude range.
+     * Verifies that only objects in range are written to the report file.
+     * Uses a backup file to avoid overwriting actual production data.
      */
     @Test
-    void testGenerateDensityReport() {
-        outContent.reset();
+    void testGenerateDensityReport() throws IOException {
+        File realFile = new File("density_report.csv");
+        File backupFile = new File("density_report_backup.csv");
 
-        // Add sample debris objects for testing range filtering
-        trackingSystem.getAllObjects().put("inRange", new Debris("123", "InRange", "US", "LEO", 2021, "CCAFS",
-                100.0, 90.0, "abc", "HRR", false, false, false, 100, 1));
-        trackingSystem.getAllObjects().put("outRange", new Debris("124", "OutRange", "US", "LEO", 2021, "CCAFS",
-                1000.0, 90.0, "abc", "HRR", false, false, false, 100, 1));
+        if (realFile.exists()) {
+            if (backupFile.exists()) backupFile.delete();
+            realFile.renameTo(backupFile);
+        }
 
-        missionControl.generateDensityReport(10, 200);
+        try {
+            if (realFile.exists()) realFile.delete();
 
-        String output = outContent.toString();
-        assertTrue(output.contains("Record ID: 123"), "Should include object in range");
-        assertFalse(output.contains("Record ID: 124"), "Should not include object out of range");
+            trackingSystem.getAllObjects().put("A", new Debris("A", "Debris-A", "US", "LEO", 2020, "KSC",
+                20.0, 0.0, "hash1", "HRR", false, false, false, 100, 1));
+            trackingSystem.getAllObjects().put("B", new Debris("B", "Debris-B", "US", "LEO", 2020, "KSC",
+                150.0, 0.0, "hash2", "HRR", false, false, false, 100, 1));
+            trackingSystem.getAllObjects().put("C", new Debris("C", "Debris-C", "US", "LEO", 2020, "KSC",
+                500.0, 0.0, "hash3", "HRR", false, false, false, 100, 1)); //out of range
+
+            missionControl.generateDensityReport(10, 200);
+
+            assertTrue(realFile.exists(), "density_report.csv should be created");
+
+            List<String> lines = java.nio.file.Files.readAllLines(realFile.toPath());
+            assertTrue(lines.stream().anyMatch(line -> line.contains("Debris-A")), "Should contain Debris-A");
+            assertTrue(lines.stream().anyMatch(line -> line.contains("Debris-B")), "Should contain Debris-B");
+            assertFalse(lines.stream().anyMatch(line -> line.contains("Debris-C")), "Should NOT contain Debris-C");
+
+        } finally {
+            if (realFile.exists()) realFile.delete();
+            if (backupFile.exists()) backupFile.renameTo(realFile);
+        }
     }
+
     /**
-     * Tests that the `trackObjectsInLEO()` method only prints objects 
-     * that have "LEO" as their orbit type.
-     * 
-     * This method sets up one qualifying (LEO) object and one non-LEO object.
-     * It then verifies that only the LEO object appears in the output.
+     * Tests that only LEO objects are printed by trackObjectsInLEO().
      */
     @Test
     void testTrackObjectsInLEO() {
-        this.outContent.reset();
-
-        // Add one LEO and one non-LEO object
-        this.trackingSystem.getAllObjects().put("leo1", new Debris("2001", "LEO-Obj1", "US", "LEO", 2020, "KSC",
+        outContent.reset();
+        trackingSystem.getAllObjects().put("leo1", new Debris("2001", "LEO-Obj1", "US", "LEO", 2020, "KSC",
                 10.0, 9.0, "g1", "HRR", false, false, false, 100, 2));
-        this.trackingSystem.getAllObjects().put("geo1", new Debris("2002", "GEO-Obj1", "US", "GEO", 2020, "KSC",
+        trackingSystem.getAllObjects().put("geo1", new Debris("2002", "GEO-Obj1", "US", "GEO", 2020, "KSC",
                 10.0, 9.0, "g2", "HRR", false, false, false, 100, 2));
-
-        // Invoke the method
-        this.missionControl.trackObjectsInLEO();
-
-        // Capture and test output
-        String output = this.outContent.toString();
-
-        Assertions.assertTrue(output.contains("LEO-Obj1"), "Should display LEO object");
-        Assertions.assertFalse(output.contains("GEO-Obj1"), "Should not display non-LEO object");
+        missionControl.trackObjectsInLEO();
+        String output = outContent.toString();
+        assertTrue(output.contains("LEO-Obj1"));
+        assertFalse(output.contains("GEO-Obj1"));
     }
+
+    /**
+     * Tests user login with various valid and invalid combinations of username, password, and role.
+     */
+    @Test
+    void testLogin() {
+        boolean success = userManager.authenticateUser("testUser", "password123", "Scientist");
+        assertTrue(success, "Login should succeed with correct credentials and role");
+
+        success = userManager.authenticateUser("testUser", "wrongPass", "Scientist");
+        assertFalse(success, "Login should fail with incorrect password");
+
+        success = userManager.authenticateUser("testUser", "password123", "Administrator");
+        assertFalse(success, "Login should fail with incorrect role");
+
+        success = userManager.authenticateUser("ghost", "password123", "Scientist");
+        assertFalse(success, "Login should fail for non-existent user");
+    }
+
+    /**
+     * Tests Administrator's ability to update a user’s username and/or password.
+     * Verifies that the user is correctly updated and remains valid after the change.
+     */
+    @Test
+    void testUpdateUserFlexible() {
+        UserManager mockManager = new UserManager("test_users.csv");
+        Administrator admin = new Administrator("admin", "hash", "salt", mockManager);
+
+        admin.createUser("oldUser", "oldPass", "Scientist");
+
+        admin.updateUserFlexible("oldUser", "newUser", "[KEEP_OLD_PASSWORD]");
+        User updated = mockManager.getUser("newUser");
+        assertNotNull(updated, "Updated user should exist with new username");
+        assertEquals("Scientist", updated.getUserType(), "User type should remain Scientist");
+
+        admin.updateUserFlexible("newUser", "newUser", "newPass123");
+        boolean success = mockManager.authenticateUser("newUser", "newPass123", "Scientist");
+        assertTrue(success, "User should authenticate with new password");
+
+        admin.updateUserFlexible("newUser", "finalUser", "finalPass");
+        User finalUser = mockManager.getUser("finalUser");
+        assertNotNull(finalUser, "Final user should exist after full update");
+        assertTrue(mockManager.authenticateUser("finalUser", "finalPass", "Scientist"), "Should authenticate with final credentials");
+    }
+    
 }

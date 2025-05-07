@@ -1,14 +1,14 @@
-//import java.util.Scanner;
-
 /**
  * Class that contains the main method that runs the program 
  * @autor Caitlin Gregory
  * @autor Daniela Gutierrez
  */
-class RunSimulation{ //implements DisplayMenu
+class RunSimulation{ 
 
+    /**Menu interface is a parameter*/
     private final Menu menu;
 
+    /**Constructor that takes in the Menu interface */
     public RunSimulation(Menu menu) {
         this.menu = menu;
     }

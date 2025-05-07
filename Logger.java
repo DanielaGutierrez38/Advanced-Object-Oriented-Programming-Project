@@ -14,12 +14,11 @@ import java.time.format.DateTimeFormatter;
  * @author Caitlin Gregory
  */
 public class Logger {
-    // 1. Private static instance
-    // Only instance of Logger
+
+    /**Private static instance, Only instance of Logger*/
     private static Logger instance;
 
-    // 2. Private constructor
-    // Prevents other classes from creating a new logger directly
+    /** Prevents other classes from creating a new logger directly */
     private Logger() {}
 
     /**

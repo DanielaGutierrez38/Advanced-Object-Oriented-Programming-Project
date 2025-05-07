@@ -56,7 +56,7 @@ public class TrackingSystem{
 
     /**
      * For testing
-     * @param objects
+     * @param objects object dictionary
      */
     public void setObjects(Map<String, SpaceObject> objects){
         this.objects = objects;

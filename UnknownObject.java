@@ -31,6 +31,8 @@ public class UnknownObject extends SpaceObject {
         super(recordId, satelliteName, country, orbitType, launchYear, launchSite,
               longitude, avgLongitude, geohash, hrrCategory, isNominated, hasDossier, isUnknownObject, daysOld, conjunctionCount);
     }
+
+    /**Method to display info */
     @Override
     public void displayInfo() {
       System.out.println("Record ID: " + recordId);

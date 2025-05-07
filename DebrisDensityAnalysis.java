@@ -3,7 +3,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Class that generates the density analysis report 
+ * @author Caitlin Gregory
+ */
 public class DebrisDensityAnalysis{
+
+    /**Default constructor */
+    DebrisDensityAnalysis(){}
 
     /**
      * Generate a CSV report of space objects within a given longitude range.

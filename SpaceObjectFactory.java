@@ -7,14 +7,28 @@
  */
 public class SpaceObjectFactory {
 
+    /**Default constructor */
+    SpaceObjectFactory(){}
+
     /**
      * Creates an appropriate subclass of SpaceObject based on the type string.
      * 
      * @param type          the type of object (e.g., "DEBRIS", "ROCKET BODY", etc.)
-     * @param id            the record ID
-     * @param orbit         the orbit category (LEO, MEO, GEO, etc.)
      * @param daysOld       how many days old the object is
-     * @param conjunctions  number of conjunctions recorded
+     * @param recordId recordId
+     * @param geohash the geohash
+     * @param isNominated boolean
+     * @param isUnknownObject boolean
+     * @param conjunctionCount int number of conjunctions recorded
+     * @param hrrCategory String
+     * @param avgLongitude double with object's average longitude
+     * @param longitude double with object's longitude
+     * @param launchSite place object was launched
+     * @param launchYear year it was launched
+     * @param satelliteName name of the satellite
+     * @param country country that launched it
+     * @param orbitType the orbit category (LEO, MEO, GEO, etc.)
+     * @param hasDossier boolean
      * @return the corresponding SpaceObject subclass
      */
     public static SpaceObject create(

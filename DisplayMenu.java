@@ -17,14 +17,18 @@ public class DisplayMenu implements Menu{
     /** Create a new Logger variable to log user interactions */
     Logger logger = Logger.getInstance();
 
-    /** Create a new MissionControl variable to call its methods to track, search and assess */
+    /** Create a new MissionControl variable to call its methods to track, search and assess 
+     * @param missionControl missionControl instance
+     * @param userManager userManager instance
+    */
     public DisplayMenu(MissionControl missionControl, UserManager userManager) {
         this.missionControl = missionControl;
         this.userManager = userManager;
     }
 
     /**
-     * Method that displays the main menu
+     * Displays the main entry menu and handles user login or account creation.
+     * Provides access to role-specific features.
      */
     @Override
     public void displayMainMenu() {
@@ -32,6 +36,7 @@ public class DisplayMenu implements Menu{
         Scanner input = new Scanner(System.in);
 
         do {
+
             System.out.println("------------------Space Debris in LEO Tracker------------------");
             System.out.println("Welcome! Please select the number corresponding to your user type");
             System.out.println("1-. Scientist");
@@ -40,10 +45,12 @@ public class DisplayMenu implements Menu{
             System.out.println("4-. Exit");
 
             try {
+
                 userSelection = input.nextInt();
                 input.nextLine();
 
                 if (userSelection >= 1 && userSelection <= 3) {
+
                     System.out.println("1-. Log In");
                     System.out.println("2-. Create New User");
                     int authChoice = input.nextInt();
@@ -52,14 +59,23 @@ public class DisplayMenu implements Menu{
                     System.out.print("Enter username: ");
                     String username = input.nextLine();
 
-                    Console console = System.console();
                     String password;
-                    if (console != null) {
-                        char[] passwordChars = console.readPassword("Enter password: ");
-                        password = new String(passwordChars);
-                    } else {
-                        System.out.print("Enter password (not hidden): ");
-                        password = input.nextLine();
+
+                    try {
+
+                        Console console = System.console();
+
+                        if (console != null) {
+                            char[] passwordChars = console.readPassword("Enter password: ");
+                            password = new String(passwordChars);
+                        } else {
+                            System.out.print("Enter password (not hidden): ");
+                            password = input.nextLine();
+                        }
+
+                    } catch (Exception e) {
+                        System.out.println("Error reading password input.");
+                        continue;
                     }
 
                     String userType = switch (userSelection) {
@@ -69,29 +85,34 @@ public class DisplayMenu implements Menu{
                         default -> "";
                     };
 
-                    if (authChoice == 1) {
-                        boolean success = userManager.authenticateUser(username, password, userType);
-                        if (success) {
-                            Logger.getInstance().log(" " + userType + " user '" + username + "' logged in");
-                            User user = userManager.getUser(username);
-                            if (user instanceof Scientist) displayScientistMenu();
-                            else if (user instanceof SpaceAgentRep) displaySpaceAgentRepMenu();
-                            else if (user instanceof Administrator) displayAdministratorMenu();
+                    try {
+                        if (authChoice == 1) { //authenticate password
+                            boolean success = userManager.authenticateUser(username, password, userType);
+                            if (success) {
+                                Logger.getInstance().log(" " + userType + " user '" + username + "' logged in"); //use logger
+                                User user = userManager.getUser(username);
+                                //display corresponding menu according to user type
+                                if (user instanceof Scientist) displayScientistMenu();
+                                else if (user instanceof SpaceAgentRep) displaySpaceAgentRepMenu();
+                                else if (user instanceof Administrator) displayAdministratorMenu();
+                            } else {
+                                System.out.println("Login failed. Please check your credentials.");
+                            }
+                        } else if (authChoice == 2) { //prevent same usernames
+                            if (userManager.getUser(username) != null) {
+                                System.out.println("User already exists. Please choose a different username.");
+                            } else {
+                                Administrator tempAdmin = new Administrator("temp", "", "", userManager);
+                                tempAdmin.createUser(username, password, userType);
+                            }
                         } else {
-                            System.out.println("Login failed. Please check your credentials.");
+                            System.out.println("Invalid choice.");
                         }
-                    } else if (authChoice == 2) {
-                        if (userManager.getUser(username) != null) {
-                            System.out.println("User already exists. Please choose a different username.");
-                        } else {
-                            Administrator tempAdmin = new Administrator("temp", "", "", userManager);
-                            tempAdmin.createUser(username, password, userType);
-                        }
-                    } else {
-                        System.out.println("Invalid choice.");
+                    } catch (Exception e) {
+                        System.out.println("Unexpected error during authentication or creation: " + e.getMessage());
                     }
 
-                } else if (userSelection == 4) {
+                } else if (userSelection == 4) { //update csv when exiting
                     Logger.getInstance().log(" CSV File was updated with debris orbit status");
                     missionControl.exportToUpdatedCSV("updated_rso_metrics.csv");
                     System.out.println("Thank you for using the system! See you next time :)");
@@ -127,6 +148,7 @@ public class DisplayMenu implements Menu{
                 userSelectionScientist = inputScientist.nextInt();
 
                 switch (userSelectionScientist) {
+                    
                     case 1:
                     
                         System.out.println("Please select the type of object that you want to track: ");
@@ -139,7 +161,7 @@ public class DisplayMenu implements Menu{
                             int objectTrack = inputScientist.nextInt();
 
                             if (objectTrack >= 1 && objectTrack <= 4) {
-                                missionControl.trackObjectsInSpace(objectTrack); // passes choice
+                                missionControl.trackObjectsInSpace(objectTrack); //passes choice
                             } else {
                                 System.out.println("Invalid input. Please enter a number between 1 and 4");
                             }
@@ -191,7 +213,7 @@ public class DisplayMenu implements Menu{
 
                     case 3:
                         Logger.getInstance().log(" Scientist User logged out");
-                        displayMainMenu(); // Go back to main menu
+                        displayMainMenu(); //go back to main menu
                         break;
 
                     default:
@@ -272,10 +294,7 @@ public class DisplayMenu implements Menu{
             }
 
         }while (userSelectionSAR != 3);
-            // Re-display the SAR menu until they choose to go back
-            //if (userSelectionSAR != 3){
-              //  displaySpaceAgentRepMenu();
-            //}
+
     }
 
     /**
@@ -378,5 +397,4 @@ public class DisplayMenu implements Menu{
 
     }
     
-
 }

@@ -27,7 +27,6 @@ class MissionControl {
      * Search a space object based on its type
      * @param choice type of object that the user wants to query
      */
-    // Accept 'choice' passed in from DisplayMenu
     public void trackObjectsInSpace(int choice) {
         Logger logger = Logger.getInstance(); // Log start of query
 

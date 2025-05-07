@@ -335,3 +335,23 @@
 06-05-2025 19:25:56  SpaceAgentRep user 'katie' logged in
 06-05-2025 19:26:08  Space Agent Representative User logged out
 06-05-2025 19:26:10  CSV File was updated with debris orbit status
+06-05-2025 20:34:09  SpaceAgentRep user 'denise123' logged in
+06-05-2025 20:34:15 Space Agent Rep selected Generate Density Report
+06-05-2025 20:34:18  Space Agent Representative User logged out
+06-05-2025 20:36:03  CSV File was updated with debris orbit status
+06-05-2025 21:44:57  SpaceAgentRep user 'denise123' logged in
+06-05-2025 21:45:10  Space Agent Representative User logged out
+06-05-2025 21:45:34  Administrator user '646gustava' logged in
+06-05-2025 21:45:42  Administrator User logged out
+06-05-2025 21:47:14  CSV File was updated with debris orbit status
+06-05-2025 23:03:06  SpaceAgentRep user 'trixie745' logged in
+06-05-2025 23:03:08  Space Agent Rep selected Analyze Long-Term Impact
+06-05-2025 23:03:56 Space Agent Rep selected Generate Density Report
+06-05-2025 23:04:02  Space Agent Representative User logged out
+06-05-2025 23:04:15  Administrator user 'erikg444' logged in
+06-05-2025 23:04:31 New useradmin3 was created
+06-05-2025 23:05:29 lola321 changed their username to lola
+06-05-2025 23:05:37 lola321 updated their password
+06-05-2025 23:06:07 User lola deleted
+06-05-2025 23:09:21  Administrator User logged out
+06-05-2025 23:09:22  CSV File was updated with debris orbit status
