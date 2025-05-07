@@ -310,3 +310,13 @@
 05-05-2025 19:02:56 Space Agent Rep selected Generate Density Report
 05-05-2025 19:03:02  Space Agent Representative User logged out
 05-05-2025 19:03:05  CSV File was updated with debris orbit status
+06-05-2025 14:35:15  Administrator user '646gustava' logged in
+06-05-2025 14:35:47 New userscientist1was created
+06-05-2025 14:35:51  Administrator User logged out
+06-05-2025 14:35:53  CSV File was updated with debris orbit status
+06-05-2025 15:10:27  CSV File was updated with debris orbit status
+06-05-2025 16:53:00  Administrator user 'erikg444' logged in
+06-05-2025 16:54:53 New userscientist2was created
+06-05-2025 16:54:55  Administrator User logged out
+06-05-2025 16:54:56  CSV File was updated with debris orbit status
+06-05-2025 16:56:50  CSV File was updated with debris orbit status

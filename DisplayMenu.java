@@ -321,7 +321,7 @@ public class DisplayMenu implements Menu{
                         System.out.print("Enter user type (Scientist / SpaceAgentRep / Administrator): ");
                         String newType = inputAdmin.nextLine();
                         admin.createUser(newUsername, newPassword, newType);
-                        Logger.getInstance().log("New user" + newUsername + "was created");
+                        Logger.getInstance().log("New user" + newUsername + " was created");
                         break;
     
                     case 2: //manage (update) an existing user's username/password
@@ -347,7 +347,7 @@ public class DisplayMenu implements Menu{
                         if (updateChoice == 2 || updateChoice == 3) {
                             System.out.print("Enter new password: ");
                             updatedPassword = inputAdmin.nextLine();
-                            Logger.getInstance().log(oldUsername + "updated their password");
+                            Logger.getInstance().log(oldUsername + " updated their password");
                         }
     
                         admin.updateUserFlexible(oldUsername, updatedUsername, updatedPassword);
