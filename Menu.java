@@ -1,3 +1,7 @@
+/**
+ * Interface that is implemented in DisplayMenu and RunSimulation, methods are called in DisplayMenu
+ * @author Daniela Gutierrez
+ */
 public interface Menu {
 
     /**Main Menu UI */

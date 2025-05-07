@@ -13,7 +13,9 @@ class SpaceAgentRep extends User{
         super(username, hash, salt);
     }
 
-    /**Method that gets the user type (override) */
+    /**Method that gets the user type (override) 
+     * @return string with user type
+    */
     @Override
     public String getUserType() {
         return "SpaceAgentRep";

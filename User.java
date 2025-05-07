@@ -5,8 +5,11 @@
  */
 public abstract class User {
 
+    /**User's username */
     protected String username;
+    /**user's password's hash */
     protected String passwordHash;
+    /**user's password's salt */
     protected String salt;
 
     /**Default constructor */
@@ -31,6 +34,7 @@ public abstract class User {
     }
 
     /**
+     * get password's hash
      * @return String with password hash
      */
     public String getPasswordHash(){
@@ -38,8 +42,8 @@ public abstract class User {
     }
     
     /**
+     * get password's salt
      * @return String with password salt
-     * @return
      */
     public String getSalt(){ 
         return salt; 

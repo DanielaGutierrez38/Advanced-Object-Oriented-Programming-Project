@@ -76,3 +76,93 @@ Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
 58639,STARLINK-31070,US,LEO,2023,Payload
 Total objects in longitude range: 41
 
+---- Objects in Range [10.00, 200.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+9999,TestSat,US,LEO,2022,Debris
+9997,Young,US,LEO,2022,Debris
+9996,NoConj,US,LEO,2022,Debris
+123,InRange,US,LEO,2021,Debris
+9998,NonLEO,US,GEO,2022,Debris
+Total objects in longitude range: 5
+
+---- Objects in Range [10.00, 200.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+9999,TestSat,US,LEO,2022,Debris
+9997,Young,US,LEO,2022,Debris
+9996,NoConj,US,LEO,2022,Debris
+123,InRange,US,LEO,2021,Debris
+9998,NonLEO,US,GEO,2022,Debris
+Total objects in longitude range: 5
+
+---- Objects in Range [10.00, 200.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+9999,TestSat,US,LEO,2022,Debris
+9997,Young,US,LEO,2022,Debris
+9996,NoConj,US,LEO,2022,Debris
+123,InRange,US,LEO,2021,Debris
+9998,NonLEO,US,GEO,2022,Debris
+Total objects in longitude range: 5
+
+---- Objects in Range [10.00, 200.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+9999,TestSat,US,LEO,2022,Debris
+9997,Young,US,LEO,2022,Debris
+9996,NoConj,US,LEO,2022,Debris
+123,InRange,US,LEO,2021,Debris
+9998,NonLEO,US,GEO,2022,Debris
+Total objects in longitude range: 5
+
+---- Objects in Range [10.00, 200.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+9999,TestSat,US,LEO,2022,Debris
+9997,Young,US,LEO,2022,Debris
+9996,NoConj,US,LEO,2022,Debris
+123,InRange,US,LEO,2021,Debris
+9998,NonLEO,US,GEO,2022,Debris
+Total objects in longitude range: 5
+
+---- Objects in Range [10.00, 200.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+9999,TestSat,US,LEO,2022,Debris
+9997,Young,US,LEO,2022,Debris
+9996,NoConj,US,LEO,2022,Debris
+123,InRange,US,LEO,2021,Debris
+9998,NonLEO,US,GEO,2022,Debris
+Total objects in longitude range: 5
+
+---- Objects in Range [100.00, 1000.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+11888,SL-6 R/B(2),CIS,HEO,1980,RocketBody
+39645,COSMOS 1867 COOLANT,CIS,LEO,1987,Debris
+4821,THORAD AGENA D DEB,US,LEO,1970,Debris
+60053,STARLINK-31793,US,LEO,2024,Payload
+21453,DELTA 1 DEB,US,LEO,1975,Debris
+23479,SL-19 DEB,CIS,LEO,1994,Debris
+27729,DELTA 1 DEB,US,LEO,1977,Debris
+56081,ONEWEB-0718,UK,LEO,2023,Payload
+13460,COSMOS 1275 DEB,CIS,LEO,1981,Debris
+26958,PROBA 1,ESA,LEO,2001,Payload
+30005,FENGYUN 1C DEB,PRC,LEO,1999,Debris
+32119,FENGYUN 1C DEB,PRC,LEO,1999,Debris
+35796,COSMOS 2251 DEB,CIS,LEO,1993,Debris
+58639,STARLINK-31070,US,LEO,2023,Payload
+Total objects in longitude range: 14
+
+---- Objects in Range [100.00, 9000.00] ----
+Record ID,Satellite Name,Country,Orbit Type,Launch Year,Object Type
+11888,SL-6 R/B(2),CIS,HEO,1980,RocketBody
+39645,COSMOS 1867 COOLANT,CIS,LEO,1987,Debris
+4821,THORAD AGENA D DEB,US,LEO,1970,Debris
+60053,STARLINK-31793,US,LEO,2024,Payload
+21453,DELTA 1 DEB,US,LEO,1975,Debris
+23479,SL-19 DEB,CIS,LEO,1994,Debris
+27729,DELTA 1 DEB,US,LEO,1977,Debris
+56081,ONEWEB-0718,UK,LEO,2023,Payload
+13460,COSMOS 1275 DEB,CIS,LEO,1981,Debris
+26958,PROBA 1,ESA,LEO,2001,Payload
+30005,FENGYUN 1C DEB,PRC,LEO,1999,Debris
+32119,FENGYUN 1C DEB,PRC,LEO,1999,Debris
+35796,COSMOS 2251 DEB,CIS,LEO,1993,Debris
+58639,STARLINK-31070,US,LEO,2023,Payload
+Total objects in longitude range: 14
+

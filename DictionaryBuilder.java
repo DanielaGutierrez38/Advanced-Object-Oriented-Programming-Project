@@ -8,6 +8,10 @@ import java.util.*;
  * @author Daniela Gutierrez
  */
 public class DictionaryBuilder {
+
+    /**Default constructor */
+    DictionaryBuilder(){}
+
     /**
      * Converts CSV lines into a dictionary of SpaceObjects.
      * 
@@ -62,7 +66,9 @@ public class DictionaryBuilder {
         return objectMap;
     }
 
-    /** Parses an integer safely with fallback to 0 */
+    /** Parses an integer safely with fallback to 0 
+     * @param val value to parse
+    */
     private static int parseIntSafe(String val){
         try {
             return Integer.parseInt(val.trim());
@@ -71,7 +77,9 @@ public class DictionaryBuilder {
         }
     }
 
-    /** Parses a double safely with fallback to 0.0 */
+    /** Parses a double safely with fallback to 0.0 
+     * @param val value to parse
+    */
     private static double parseDoubleSafe(String val){
         try {
             return Double.parseDouble(val.trim());
@@ -80,7 +88,10 @@ public class DictionaryBuilder {
         }
     }
 
-    /** Splits a CSV line respecting quoted commas */
+    /** Splits a CSV line respecting quoted commas 
+     * @param line line to split
+     * @return String array
+    */
     public static String[] smartSplit(String line){
         List<String> tokens = new ArrayList<>();
         boolean inQuotes = false;
