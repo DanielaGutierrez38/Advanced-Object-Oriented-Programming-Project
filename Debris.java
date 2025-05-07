@@ -48,34 +48,34 @@ public class Debris extends SpaceObject {
     /** Getter for stillInOrbit
      * @return stillInOrbit boolean
     */
-    public boolean isStillInOrbit() {
+    public boolean isStillInOrbit(){
         return stillInOrbit;
     }
 
     /**Setter for stillInOrbit 
      * @param stillInOrbit boolean
     */
-    public void setStillInOrbit(boolean stillInOrbit) {
+    public void setStillInOrbit(boolean stillInOrbit){
         this.stillInOrbit = stillInOrbit;
     }
 
     /** Getter for riskLevel
      * @return String riskLevel
     */
-    public String getRiskLevel() {
+    public String getRiskLevel(){
         return riskLevel;
     }
 
     /**Setter for riskLevel 
      * @param riskLevel String
     */
-    public void setRiskLevel(String riskLevel) {
+    public void setRiskLevel(String riskLevel){
         this.riskLevel = riskLevel;
     }
 
     /**Display Debris information */
     @Override  
-    public void displayInfo() {
+    public void displayInfo(){
         System.out.println("Record ID: " + recordId);
         System.out.println("Satellite Name: " + satelliteName);
         System.out.println("Country: " + country);

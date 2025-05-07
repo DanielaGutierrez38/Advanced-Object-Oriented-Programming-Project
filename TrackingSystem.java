@@ -13,7 +13,7 @@ import java.util.Map;
  * @author Daniela Gutierrez
  */
 
-public class TrackingSystem {
+public class TrackingSystem{
 
     /**
      * A dictionary of space objects (Debris or Satellite) indexed by their record ID.
@@ -31,7 +31,7 @@ public class TrackingSystem {
      * 
      * @param filePath path to the CSV file
      */
-    public TrackingSystem(String filePath) {
+    public TrackingSystem(String filePath){
         this.objects = FileLoader.load(filePath);
     }
 
@@ -41,7 +41,7 @@ public class TrackingSystem {
      * @param recordId the ID of the object
      * @return the SpaceObject or null if not found
      */
-    public SpaceObject getObjectById(String recordId) {
+    public SpaceObject getObjectById(String recordId){
         return objects.get(recordId);
     }
 
@@ -50,7 +50,7 @@ public class TrackingSystem {
      * 
      * @return the dictionary of all space objects
      */
-    public Map<String, SpaceObject> getAllObjects() {
+    public Map<String, SpaceObject> getAllObjects(){
         return objects;
     }
 
@@ -58,7 +58,7 @@ public class TrackingSystem {
      * For testing
      * @param objects
      */
-    public void setObjects(Map<String, SpaceObject> objects) {
+    public void setObjects(Map<String, SpaceObject> objects){
         this.objects = objects;
     }
 
