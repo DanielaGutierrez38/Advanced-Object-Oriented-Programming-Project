@@ -1,2 +1,2 @@
-# aoop-project
-CS 3331 Project
+# Space Debris in Low Earth Orbit
+This project implements a system to models and interact with space debris in Low Earth Orbit (LEO). The system lets the user log in as a scientist, space agency representative, or administrator. Each user has different use cases. For instance, scientist is able to view data, space agency representative can view reports, and administrator can edit users. This project uses comprehensive JUnit tests, Javadocs for documentation, and diagrams to help the user better understand the functionality of the system. 
